@@ -1,6 +1,6 @@
 import { Trans, useLingui } from "@lingui/react/macro";
-import type { IntegrationCatalogResult, IntegrationSetupState } from "@rakazo/contracts";
-import { Button, Input } from "@rakazo/ui-web";
+import type { IntegrationCatalogResult, IntegrationSetupState } from "@bot/contracts";
+import { Button, Input } from "@bot/ui-web";
 import { Check } from "lucide-react";
 import { useEffect, useId, useState } from "react";
 import { connectMcpOauth } from "../../lib/mcp-connect";

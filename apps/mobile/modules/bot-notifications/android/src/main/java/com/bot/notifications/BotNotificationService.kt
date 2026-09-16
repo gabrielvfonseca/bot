@@ -1,4 +1,4 @@
-package com.rakazo.notifications
+package com.bot.notifications
 
 import android.app.Notification
 import android.app.NotificationChannel
@@ -53,7 +53,7 @@ private data class RunRecord(
 
 private class ApiException(val status: Int) : IOException()
 
-class RakazoNotificationService : Service() {
+class BotNotificationService : Service() {
   private val scope = CoroutineScope(SupervisorJob() + Dispatchers.IO)
   private lateinit var manager: NotificationManager
   private var pollJob: Job? = null
@@ -226,15 +226,15 @@ class RakazoNotificationService : Service() {
   private fun post(run: RunRecord, copy: NotificationCopy) {
     if (!run.notificationsEnabled || isOpenThread(run)) return
     val notification = builder(copy.channel)
-      .setSmallIcon(R.drawable.ic_rakazo_notification)
+      .setSmallIcon(R.drawable.ic_bot_notification)
       .setContentTitle(copy.title)
       .setContentText(copy.body)
       .setStyle(Notification.BigTextStyle().bigText(copy.body))
       .setContentIntent(openApp(run))
       .addExtras(Bundle().apply {
-        putString("rakazo.spaceId", run.spaceId)
-        putString("rakazo.botId", run.botId)
-        putString("rakazo.threadId", run.threadId)
+        putString("bot.spaceId", run.spaceId)
+        putString("bot.botId", run.botId)
+        putString("bot.threadId", run.threadId)
       })
       .setAutoCancel(true)
       .setCategory(Notification.CATEGORY_MESSAGE)
@@ -281,7 +281,7 @@ class RakazoNotificationService : Service() {
 
   private fun liveStatusIcon(run: RunRecord, avatarStyle: String): Icon {
     if (avatarStyle != "organic") {
-      return Icon.createWithResource(this, R.drawable.ic_rakazo_notification)
+      return Icon.createWithResource(this, R.drawable.ic_bot_notification)
     }
     val bitmap = Bitmap.createBitmap(96, 96, Bitmap.Config.ARGB_8888)
     val canvas = Canvas(bitmap)
@@ -321,12 +321,12 @@ class RakazoNotificationService : Service() {
 
   private fun openApp(run: RunRecord? = null): PendingIntent {
     val intent = if (run == null) {
-      packageManager.getLaunchIntentForPackage(packageName) ?: Intent(Intent.ACTION_VIEW, Uri.parse("rakazo://"))
+      packageManager.getLaunchIntentForPackage(packageName) ?: Intent(Intent.ACTION_VIEW, Uri.parse("bot://"))
     } else {
       val destination = if (run.groupId != null) {
-        "rakazo://group-thread?groupId=${Uri.encode(run.groupId)}&name=${Uri.encode(run.groupName.orEmpty())}&spaceId=${Uri.encode(run.spaceId)}"
+        "bot://group-thread?groupId=${Uri.encode(run.groupId)}&name=${Uri.encode(run.groupName.orEmpty())}&spaceId=${Uri.encode(run.spaceId)}"
       } else {
-        "rakazo://thread?botId=${Uri.encode(run.botId)}&name=${Uri.encode(run.botName)}&spaceId=${Uri.encode(run.spaceId)}"
+        "bot://thread?botId=${Uri.encode(run.botId)}&name=${Uri.encode(run.botName)}&spaceId=${Uri.encode(run.spaceId)}"
       }
       Intent(
         Intent.ACTION_VIEW,
@@ -362,10 +362,10 @@ class RakazoNotificationService : Service() {
 
   companion object {
     private const val LIVE_NOTIFICATION_ID = 1101
-    private const val ACTION_THREAD_CHANGED = "com.rakazo.notifications.THREAD_CHANGED"
+    private const val ACTION_THREAD_CHANGED = "com.bot.notifications.THREAD_CHANGED"
     private const val PROMOTED_ONGOING_EXTRA = "android.requestPromotedOngoing"
     private const val POLL_INTERVAL_MS = 8_000L
-    private const val STATE_PREFERENCES = "com.rakazo.notification_state"
+    private const val STATE_PREFERENCES = "com.bot.notification_state"
     private const val SEEN_RUNS = "seen_runs"
     private const val SEEN_RUNS_SEEDED = "seen_runs_seeded"
     private const val SEEN_RUNS_SPACE_ID = "seen_runs_space_id"
@@ -376,12 +376,12 @@ class RakazoNotificationService : Service() {
     private var openThreadId: String? = null
 
     fun start(context: Context) {
-      val intent = Intent(context, RakazoNotificationService::class.java)
+      val intent = Intent(context, BotNotificationService::class.java)
       context.startService(intent)
     }
 
     fun stop(context: Context) {
-      context.stopService(Intent(context, RakazoNotificationService::class.java))
+      context.stopService(Intent(context, BotNotificationService::class.java))
     }
 
     fun setOpenThread(context: Context, botId: String?, threadId: String?) {
@@ -393,7 +393,7 @@ class RakazoNotificationService : Service() {
         context.getSystemService(NotificationManager::class.java).cancel(threadId.hashCode())
       }
       context.startService(
-        Intent(context, RakazoNotificationService::class.java).setAction(ACTION_THREAD_CHANGED),
+        Intent(context, BotNotificationService::class.java).setAction(ACTION_THREAD_CHANGED),
       )
     }
 
@@ -423,10 +423,10 @@ private fun attentionCopy(run: RunRecord): NotificationCopy = when (run.status) 
 }
 
 private object Channels {
-  const val LIVE = "rakazo_live"
-  const val MESSAGES = "rakazo_messages"
-  const val SCHEDULED = "rakazo_scheduled"
-  const val ATTENTION = "rakazo_attention"
+  const val LIVE = "bot_live"
+  const val MESSAGES = "bot_messages"
+  const val SCHEDULED = "bot_scheduled"
+  const val ATTENTION = "bot_attention"
 }
 
 private fun runs(endpoint: String, token: String, spaceId: String, filter: String): List<RunRecord> {
@@ -494,10 +494,10 @@ private fun rpc(
     connection.readTimeout = 15_000
     connection.doOutput = true
     connection.setRequestProperty("Content-Type", "application/json")
-    connection.setRequestProperty("Origin", "rakazo://")
+    connection.setRequestProperty("Origin", "bot://")
     connection.setRequestProperty("Authorization", "Bearer $token")
     if (spaceId.isNotBlank()) {
-      connection.setRequestProperty("x-rakazo-space-id", spaceId)
+      connection.setRequestProperty("x-bot-space-id", spaceId)
     }
     connection.outputStream.use {
       it.write(JSONObject().put("json", input).toString().toByteArray(Charsets.UTF_8))
