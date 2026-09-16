@@ -3,8 +3,8 @@ import type {
   AgentRunRequest,
   AgentRuntime,
   AgentRuntimeEvent,
-} from "@rakazo/adapter-kit";
-import { abortableDelay, inferHandoffTargetName } from "@rakazo/core";
+} from "@bot/adapter-kit";
+import { abortableDelay, inferHandoffTargetName } from "@bot/core";
 
 const running = new Map<string, AbortController>();
 
@@ -393,7 +393,7 @@ export function inferScript(
         toolCalls: [
           {
             name: "destination.write",
-            args: { collection: "notes", title: "Rakazo result", body: prompt },
+            args: { collection: "notes", title: "Bot result", body: prompt },
           },
         ],
         complete: true,

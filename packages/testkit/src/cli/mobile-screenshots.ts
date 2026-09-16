@@ -9,8 +9,8 @@ import {
   EmailEmulator,
   PipedreamConnector,
   ThirdPartyConnectorEmulator,
-} from "@rakazo/adapters";
-import { createThreadMessage, type PrismaClient } from "@rakazo/db";
+} from "@bot/adapters";
+import { createThreadMessage, type PrismaClient } from "@bot/db";
 import { sessionCookieHeader } from "../index.js";
 import { runProcess } from "./process.js";
 
@@ -38,7 +38,7 @@ async function main() {
   await mkdir(REPORT_DIR, { recursive: true });
   await mkdir(DATA_DIR, { recursive: true });
 
-  execFileSync("pnpm", ["--filter", "@rakazo/db", "exec", "prisma", "migrate", "deploy"], {
+  execFileSync("pnpm", ["--filter", "@bot/db", "exec", "prisma", "migrate", "deploy"], {
     cwd: path.join(ROOT, "packages", "db"),
     env: process.env,
     stdio: "inherit",
@@ -95,19 +95,19 @@ async function main() {
           "--output",
           path.join(REPORT_DIR, `${flow}.html`),
           "-e",
-          `RAKAZO_SCREENSHOT_EMAIL=${EMAIL}`,
+          `BOT_SCREENSHOT_EMAIL=${EMAIL}`,
           "-e",
-          `RAKAZO_SCREENSHOT_PASSWORD=${PASSWORD}`,
+          `BOT_SCREENSHOT_PASSWORD=${PASSWORD}`,
           "-e",
-          `RAKAZO_SCREENSHOT_BOT_ID=${fixture.botId}`,
+          `BOT_SCREENSHOT_BOT_ID=${fixture.botId}`,
           "-e",
-          `RAKAZO_SCREENSHOT_GROUP_ID=${fixture.groupId}`,
+          `BOT_SCREENSHOT_GROUP_ID=${fixture.groupId}`,
           "-e",
-          `RAKAZO_SCREENSHOT_ROUTINE_ID=${fixture.routineId}`,
+          `BOT_SCREENSHOT_ROUTINE_ID=${fixture.routineId}`,
           "-e",
-          `RAKAZO_NOTIFICATION_VIDEO=${path.join(REPORT_DIR, "notification-demo")}`,
+          `BOT_NOTIFICATION_VIDEO=${path.join(REPORT_DIR, "notification-demo")}`,
           "-e",
-          `RAKAZO_EXPAND_NOTIFICATIONS_URL=${EXPAND_NOTIFICATIONS_URL}`,
+          `BOT_EXPAND_NOTIFICATIONS_URL=${EXPAND_NOTIFICATIONS_URL}`,
           path.join(FLOW_DIR, `${flow}.yaml`),
         ],
         process.env,

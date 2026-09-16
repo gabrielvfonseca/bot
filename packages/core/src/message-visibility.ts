@@ -1,4 +1,4 @@
-import type { MessageBlock } from "@rakazo/contracts";
+import type { MessageBlock } from "@bot/contracts";
 
 type PresentableMessage = {
   runId?: string;

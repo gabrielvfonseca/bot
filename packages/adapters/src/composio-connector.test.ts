@@ -1,5 +1,5 @@
-import type { AdapterContext, ConnectorEvent, ConnectorTool } from "@rakazo/adapter-kit";
-import { createLogger, createTestSink, installLogger } from "@rakazo/logging";
+import type { AdapterContext, ConnectorEvent, ConnectorTool } from "@bot/adapter-kit";
+import { createLogger, createTestSink, installLogger } from "@bot/logging";
 import { describe, expect, it, vi } from "vitest";
 import { composioToolkitDirectory } from "./composio-catalog-cache.js";
 import {
@@ -193,7 +193,7 @@ describe("composio tool mapping", () => {
     } as never;
     const connector = new CompositeConnector(destination, [failing]);
     const sink = createTestSink();
-    installLogger(createLogger({ service: "rakazo-api", sinks: [sink] }));
+    installLogger(createLogger({ service: "bot-api", sinks: [sink] }));
 
     try {
       await expect(connector.discoverTools({ userId: "u" } as AdapterContext)).resolves.toEqual([
@@ -207,7 +207,7 @@ describe("composio tool mapping", () => {
       expect(logged).toContain("[redacted]");
       expect(logged).not.toContain("ak_secretvaluehere");
     } finally {
-      installLogger(createLogger({ service: "rakazo-api", level: "off", sinks: [] }));
+      installLogger(createLogger({ service: "bot-api", level: "off", sinks: [] }));
     }
   });
 
@@ -427,7 +427,7 @@ describe("composio tool mapping", () => {
         sessionPreset: config.sessionPreset,
       })),
     ).toEqual([
-      { userId: "__rakazo_catalog__", toolkits: undefined, sessionPreset: undefined },
+      { userId: "__bot_catalog__", toolkits: undefined, sessionPreset: undefined },
       { userId: "user-1", toolkits: ["GITHUB"], sessionPreset: undefined },
     ]);
 
@@ -624,7 +624,7 @@ describe("composio tool mapping", () => {
     ).toEqual({ connectIds: ["row-gh"], revokeIds: [] });
   });
 
-  it("only fetches live Composio slugs when a Rakazo row is still pending or errored", () => {
+  it("only fetches live Composio slugs when a Bot row is still pending or errored", () => {
     expect(needsLivePluginSync([{ status: "connected" }, { status: "revoked" }])).toBe(false);
     expect(needsLivePluginSync([{ status: "pending" }])).toBe(true);
     expect(needsLivePluginSync([{ status: "error" }])).toBe(true);
@@ -639,7 +639,7 @@ describe("composio tool mapping", () => {
     ).toEqual([{ provider: "github", displayName: "GitHub" }]);
   });
 
-  it("plans DB sync when Composio is connected but Rakazo is still pending", () => {
+  it("plans DB sync when Composio is connected but Bot is still pending", () => {
     expect(
       planLiveConnectionSync(
         [
