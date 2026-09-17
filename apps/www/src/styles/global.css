@@ -1,6 +1,6 @@
 @import "tailwindcss";
 
-@source "../../../../packages/design-system/src/button.tsx";
+@source "../../../../packages/design-system/src/components/ui/button.tsx";
 
 @font-face {
   font-family: "Aeonik";
