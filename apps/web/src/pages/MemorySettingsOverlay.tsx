@@ -12,7 +12,7 @@ import {
   NativeSelect,
   NativeSelectOption,
   Toggle,
-} from "@bot/ui-web";
+} from "@bot/design-system";
 import { XIcon } from "lucide-react";
 import { useEffect, useId, useState } from "react";
 import { rpc } from "../lib/rpc";

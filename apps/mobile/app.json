@@ -45,7 +45,7 @@
       "bundleIdentifier": "com.bot.app",
       "buildNumber": "1",
       "supportsTablet": false,
-      "icon": "../../packages/ui-tokens/assets/Bot.icon",
+      "icon": "../../packages/design-system/assets/Bot.icon",
       "config": {
         "usesNonExemptEncryption": false
       },
