@@ -5,7 +5,7 @@ import {
   type JobPublisher,
   type JobWorkerHost,
 } from "@bot/adapter-kit";
-import { isTooManyDatabaseConnections } from "@bot/db";
+import { isTooManyDatabaseConnections } from "@bot/database";
 import { runCorrelatedJob, unwrapJobPayload, wrapJobPayload } from "@bot/logging";
 import { makeWorkerUtils, type Runner, run, type WorkerUtils } from "graphile-worker";
 import type { Pool } from "pg";

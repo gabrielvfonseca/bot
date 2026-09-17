@@ -1,7 +1,7 @@
 import { spawn } from "node:child_process";
 import { existsSync, mkdirSync, rmSync, symlinkSync } from "node:fs";
 import type { AgentHomeStore, JobPublisher, SandboxProvider } from "@bot/adapter-kit";
-import type { PrismaClient, ThreadEvents } from "@bot/db";
+import type { PrismaClient, ThreadEvents } from "@bot/database";
 import { afterEach, describe, expect, it, vi } from "vitest";
 import {
   BACKGROUND_WORK_LAUNCH,

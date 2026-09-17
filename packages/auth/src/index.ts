@@ -1,6 +1,6 @@
 import type { TransactionalEmail, TransactionalEmailProvider } from "@bot/adapter-kit";
 import { emailAllowed, isMessagingEmail, parseAllowlist, signupPolicyFromEnv } from "@bot/core";
-import { bootstrapUserSpace, type PrismaClient } from "@bot/db";
+import { bootstrapUserSpace, type PrismaClient } from "@bot/database";
 import { betterAuth } from "better-auth";
 import { prismaAdapter } from "better-auth/adapters/prisma";
 import { APIError, createAuthMiddleware } from "better-auth/api";

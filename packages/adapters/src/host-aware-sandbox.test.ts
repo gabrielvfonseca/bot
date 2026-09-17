@@ -2,7 +2,7 @@ import { mkdtempSync, rmSync } from "node:fs";
 import { tmpdir } from "node:os";
 import path from "node:path";
 import type { ComputerRef, SandboxProvider } from "@bot/adapter-kit";
-import type { PrismaClient } from "@bot/db";
+import type { PrismaClient } from "@bot/database";
 import { afterAll, afterEach, describe, expect, it, vi } from "vitest";
 import { ComputerBrowserProvider } from "./computer-browser.js";
 import { DesktopSandboxProvider } from "./desktop-sandbox.js";

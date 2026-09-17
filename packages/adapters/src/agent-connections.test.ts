@@ -1,4 +1,4 @@
-import type { PrismaClient, ThreadEvents } from "@bot/db";
+import type { PrismaClient, ThreadEvents } from "@bot/database";
 import { describe, expect, it, vi } from "vitest";
 import {
   connectAgent,

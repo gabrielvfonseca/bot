@@ -7,7 +7,7 @@ import {
   createEmulatedSendbluePlatform,
   SendBlueEmulator,
 } from "@bot/adapters";
-import { formatMessagingLinkCode, issueMessagingLinkCode } from "@bot/db";
+import { formatMessagingLinkCode, issueMessagingLinkCode } from "@bot/database";
 import { afterAll, beforeAll, describe, expect, it } from "vitest";
 
 process.env.WAKEUP_DRIVER = "memory";

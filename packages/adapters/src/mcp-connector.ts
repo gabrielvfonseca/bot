@@ -6,7 +6,7 @@ import type {
   ConnectorTool,
 } from "@bot/adapter-kit";
 import { isLocalMcpHost } from "@bot/contracts";
-import type { McpServer, PrismaClient } from "@bot/db";
+import type { McpServer, PrismaClient } from "@bot/database";
 import { getLogger } from "@bot/logging";
 import { redactConnectorPayload, sanitizeConnectorError } from "./connector-safety.js";
 import {

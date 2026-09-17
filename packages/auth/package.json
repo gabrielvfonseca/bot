@@ -17,7 +17,7 @@
   "dependencies": {
     "@bot/adapter-kit": "workspace:*",
     "@bot/core": "workspace:*",
-    "@bot/db": "workspace:*",
+    "@bot/database": "workspace:*",
     "better-auth": "1.7.4"
   },
   "devDependencies": {

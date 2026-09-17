@@ -215,7 +215,7 @@ export function updateSteps(input: UpdatePlanInput): UpdateStep[] {
       id: "generate",
       label: "Regenerate the database client",
       command: "pnpm",
-      args: ["--filter", "@bot/db", "run", "generate"],
+      args: ["--filter", "@bot/database", "run", "generate"],
     },
     {
       id: "build",
@@ -227,7 +227,7 @@ export function updateSteps(input: UpdatePlanInput): UpdateStep[] {
       id: "migrate",
       label: "Apply database migrations",
       command: "pnpm",
-      args: ["--filter", "@bot/db", "run", "migrate"],
+      args: ["--filter", "@bot/database", "run", "migrate"],
     },
   );
   return steps;

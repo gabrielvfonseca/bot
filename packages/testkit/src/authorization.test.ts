@@ -8,7 +8,7 @@ import {
   deleteEmptySpaceForMember,
   releaseSpaceDeletionClaim,
   renewSpaceDeletionClaim,
-} from "@bot/db";
+} from "@bot/database";
 import { afterAll, beforeAll, describe, expect, it, vi } from "vitest";
 import type { createApp } from "../../../apps/api/src/app.ts";
 import { sessionCookieHeader } from "./index.js";

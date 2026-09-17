@@ -1,6 +1,6 @@
 import type { AdapterContext, ManagedConnectorProvider } from "@bot/adapter-kit";
 import { SecretAskPurpose } from "@bot/contracts";
-import type { PrismaClient, RunSecretWriter } from "@bot/db";
+import type { PrismaClient, RunSecretWriter } from "@bot/database";
 import { type ApprovalPausedToolResult, resolveDuplicateEffectGate } from "./approval-effect.js";
 import { storeBotSecret } from "./bot-secrets.js";
 import type { EncryptedSecretStore } from "./secrets.js";

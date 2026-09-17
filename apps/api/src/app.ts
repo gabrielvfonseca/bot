@@ -65,7 +65,7 @@ import {
 } from "@bot/adapters";
 import { blockedAuthPaths, createAuth } from "@bot/auth";
 import { signupPolicyFromEnv } from "@bot/core";
-import type { Pool, PrismaClient } from "@bot/db";
+import type { Pool, PrismaClient } from "@bot/database";
 import {
   createDb,
   createPool,
@@ -73,7 +73,7 @@ import {
   parsePositiveInteger,
   provisionMessagingIdentity,
   requireMembership,
-} from "@bot/db";
+} from "@bot/database";
 import type { Logger } from "@bot/logging";
 import {
   createServiceLogger,

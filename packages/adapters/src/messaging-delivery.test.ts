@@ -1,5 +1,5 @@
 import type { AdapterContext, MessagingSurface } from "@bot/adapter-kit";
-import type { PrismaClient } from "@bot/db";
+import type { PrismaClient } from "@bot/database";
 import { describe, expect, it, vi } from "vitest";
 import {
   applyMessagingOutboundStatus,

@@ -7,7 +7,7 @@ import type {
 import { runContinueJob } from "@bot/adapter-kit";
 import { AutomatedSenderPoliciesSchema, type MessageBlock } from "@bot/contracts";
 import { BOT_MESSAGE_MAX_HOPS } from "@bot/core";
-import type { PrismaClient, ThreadEvents } from "@bot/db";
+import type { PrismaClient, ThreadEvents } from "@bot/database";
 import { getLogger } from "@bot/logging";
 import type { TeamChatEngagementJudge } from "./team-chat-judge.js";
 import {

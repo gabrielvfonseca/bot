@@ -1,6 +1,6 @@
 import type { Actor } from "@bot/contracts";
 import { buildSkillMd } from "@bot/core";
-import type { PrismaClient } from "@bot/db";
+import type { PrismaClient } from "@bot/database";
 import { describe, expect, it, vi } from "vitest";
 import { createAgentSkillsService } from "./agent-skills.js";
 

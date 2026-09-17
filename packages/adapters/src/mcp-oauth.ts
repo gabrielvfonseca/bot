@@ -11,7 +11,7 @@ import type {
   OAuthTokens,
 } from "@modelcontextprotocol/sdk/shared/auth.js";
 import { isLocalMcpHost } from "@bot/contracts";
-import type { PrismaClient } from "@bot/db";
+import type { PrismaClient } from "@bot/database";
 import { secureFetch, validateUrl, withEndpointOriginFallback } from "./mcp-transport.js";
 import type { RemoteTransportDependencies } from "./remote-mcp.js";
 import type { EncryptedSecretStore } from "./secrets.js";

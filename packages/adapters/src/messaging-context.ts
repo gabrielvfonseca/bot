@@ -1,4 +1,4 @@
-import type { PrismaClient } from "@bot/db";
+import type { PrismaClient } from "@bot/database";
 
 /**
  * Executor dep answering "does this bot belong to a messaging identity?" —

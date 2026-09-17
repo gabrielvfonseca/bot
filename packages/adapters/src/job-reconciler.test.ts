@@ -1,5 +1,5 @@
 import type { BackgroundJob, JobPublisher } from "@bot/adapter-kit";
-import type { Pool, PrismaClient, ThreadEvents } from "@bot/db";
+import type { Pool, PrismaClient, ThreadEvents } from "@bot/database";
 import { describe, expect, it, vi } from "vitest";
 import { returnBotMessageOutcome } from "./bot-messages.js";
 import {

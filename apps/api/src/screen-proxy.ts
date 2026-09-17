@@ -6,7 +6,7 @@ import {
   SCREEN_TARGET_ENDPOINT,
   sealScreenCapability,
 } from "@bot/core/node/screen-capability";
-import type { PrismaClient } from "@bot/db";
+import type { PrismaClient } from "@bot/database";
 import type { Hono } from "hono";
 import { requestBodyLimit } from "./request-body-limit.js";
 

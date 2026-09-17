@@ -9,7 +9,7 @@ import {
   parseSkillMd,
   type SkillSource,
 } from "@bot/core";
-import { IsolationError, type PrismaClient } from "@bot/db";
+import { IsolationError, type PrismaClient } from "@bot/database";
 
 type AgentSkillRow = {
   id: string;

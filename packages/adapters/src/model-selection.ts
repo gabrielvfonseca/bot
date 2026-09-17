@@ -4,7 +4,7 @@ import {
   type findDefaultModelCredential,
   findModelCredential,
   type PrismaClient,
-} from "@bot/db";
+} from "@bot/database";
 import { listPiCatalog, scriptedCatalogEntry } from "./pi-models.js";
 import { OPENAI_COMPATIBLE_PROVIDER_ID } from "./pi-openai-compatible-provider.js";
 

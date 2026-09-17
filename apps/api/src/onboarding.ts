@@ -8,7 +8,7 @@ import {
   type Prisma,
   type PrismaClient,
   type ThreadEvents,
-} from "@bot/db";
+} from "@bot/database";
 
 /**
  * First-run conversational onboarding, seeded deterministically into the bot's

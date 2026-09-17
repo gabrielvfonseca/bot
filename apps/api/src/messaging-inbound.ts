@@ -9,12 +9,12 @@ import type {
   ProvisionedMessagingIdentity,
   SignupPolicyEnv,
   ThreadEvents,
-} from "@bot/db";
+} from "@bot/database";
 import {
   createThreadMessage,
   normalizeMessagingLinkCode,
   redeemMessagingLinkCode,
-} from "@bot/db";
+} from "@bot/database";
 import { getLogger } from "@bot/logging";
 import {
   MESSAGE_ROUTING_REARMED_REASON,

@@ -1,6 +1,6 @@
 import { type Actor, MessageBlock, type RunActivityRow } from "@bot/contracts";
 import { ACTIVE_RUN_STATUSES, botMessageContext } from "@bot/core";
-import type { PrismaClient } from "@bot/db";
+import type { PrismaClient } from "@bot/database";
 
 const RECENT_LIMIT = 20;
 const TERMINAL_STATUSES = ["completed", "failed", "cancelled"] as const;

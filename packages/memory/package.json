@@ -16,7 +16,7 @@
   },
   "dependencies": {
     "@bot/adapter-kit": "workspace:*",
-    "@bot/db": "workspace:*"
+    "@bot/database": "workspace:*"
   },
   "devDependencies": {
     "typescript": "7.0.2",

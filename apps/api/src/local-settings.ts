@@ -6,7 +6,7 @@ import {
   LOCAL_SETTINGS_RPC,
   LOCAL_SETTINGS_TOKEN_HEADER,
 } from "@bot/contracts";
-import { type PrismaClient, requireMembership } from "@bot/db";
+import { type PrismaClient, requireMembership } from "@bot/database";
 import type { Hono } from "hono";
 
 export function validLocalSettingsToken(

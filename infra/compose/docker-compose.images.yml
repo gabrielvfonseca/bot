@@ -105,7 +105,7 @@ services:
     command:
       - bash
       - -lc
-      - pnpm --filter @bot/db exec prisma migrate deploy && pnpm --filter @bot/api start
+      - pnpm --filter @bot/database exec prisma migrate deploy && pnpm --filter @bot/api start
     init: true
     security_opt:
       - no-new-privileges:true

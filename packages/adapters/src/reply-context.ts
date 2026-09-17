@@ -1,6 +1,6 @@
 import type { MessageBlock } from "@bot/contracts";
 import { blocksToAgentHistoryText, messageReaction } from "@bot/core";
-import type { PrismaClient } from "@bot/db";
+import type { PrismaClient } from "@bot/database";
 
 type QuotedMessage = { id: string; threadId: string; role: string; blocks: unknown };
 type ReplyMessage = QuotedMessage & {

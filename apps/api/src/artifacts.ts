@@ -9,7 +9,7 @@ import {
   promptTextForAttachments,
   validateAttachmentMimeType,
 } from "@bot/core";
-import { IsolationError, type PrismaClient } from "@bot/db";
+import { IsolationError, type PrismaClient } from "@bot/database";
 
 function adapterContext(actor: Actor, botId: string, operationId: string) {
   return {

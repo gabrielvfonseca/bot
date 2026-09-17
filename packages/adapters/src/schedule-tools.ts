@@ -7,7 +7,7 @@ import {
   nextCronDate,
   ONCE_ROUTINE_CRON,
 } from "@bot/core";
-import type { PrismaClient, ThreadEvents } from "@bot/db";
+import type { PrismaClient, ThreadEvents } from "@bot/database";
 
 export { isOneShotRoutineCron, ONCE_ROUTINE_CRON };
 

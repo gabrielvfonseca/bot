@@ -5,7 +5,7 @@ import type {
   JobPublisher,
   SandboxProvider,
 } from "@bot/adapter-kit";
-import type { createRepos, PrismaClient } from "@bot/db";
+import type { createRepos, PrismaClient } from "@bot/database";
 import { describe, expect, it, vi } from "vitest";
 import {
   archiveBot,
@@ -102,7 +102,7 @@ describe("spawned bot creation", () => {
       title: "",
       threadId: "thread-2",
     });
-    const createReposSpy = vi.spyOn(await import("@bot/db"), "createRepos").mockReturnValue({
+    const createReposSpy = vi.spyOn(await import("@bot/database"), "createRepos").mockReturnValue({
       createBot,
     } as unknown as ReturnType<typeof createRepos>);
 

@@ -96,7 +96,7 @@ import {
   parseComputerMode,
   SpaceLimitError,
   type ThreadEvents,
-} from "@bot/db";
+} from "@bot/database";
 import { getLogger } from "@bot/logging";
 import { parse as parseShellCommand } from "shell-quote";
 import {

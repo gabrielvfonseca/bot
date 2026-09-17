@@ -21,7 +21,7 @@ import {
   Prisma,
   type PrismaClient,
   selectSpaceVoicePreference,
-} from "@bot/db";
+} from "@bot/database";
 import type { Context, Hono } from "hono";
 import { readBoundedBody } from "./http-body.js";
 import { withSerializableRetry } from "./serializable-retry.js";

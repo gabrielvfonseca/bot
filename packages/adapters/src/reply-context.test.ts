@@ -1,4 +1,4 @@
-import type { PrismaClient } from "@bot/db";
+import type { PrismaClient } from "@bot/database";
 import { describe, expect, it, vi } from "vitest";
 import { loadReplyContext, messageToAgentHistoryText } from "./reply-context.js";
 

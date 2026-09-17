@@ -13,7 +13,7 @@
     "@bot/adapter-kit": "workspace:*",
     "@bot/adapters": "workspace:*",
     "@bot/core": "workspace:*",
-    "@bot/db": "workspace:*",
+    "@bot/database": "workspace:*",
     "@bot/logging": "workspace:*",
     "@bot/memory": "workspace:*"
   },

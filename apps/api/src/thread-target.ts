@@ -29,7 +29,7 @@ import {
   type PrismaClient,
   type ThreadEvents,
   touchGroupUpdatedAt,
-} from "@bot/db";
+} from "@bot/database";
 import { getLogger } from "@bot/logging";
 import {
   buildSendPrompt,

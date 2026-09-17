@@ -1,6 +1,6 @@
 import { type ComputerUpdate, ComputerUpdateSchema } from "@bot/contracts";
 import { ACTIVE_RUN_STATUSES } from "@bot/core";
-import type { PrismaClient } from "@bot/db";
+import type { PrismaClient } from "@bot/database";
 import { getLogger } from "@bot/logging";
 import { scheduleComputerSleep } from "./computer-idle.js";
 import {

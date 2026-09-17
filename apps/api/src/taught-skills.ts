@@ -46,7 +46,7 @@ import {
   IsolationError,
   type PrismaClient,
   type ThreadEvents,
-} from "@bot/db";
+} from "@bot/database";
 
 type TaughtSkillRow = {
   id: string;

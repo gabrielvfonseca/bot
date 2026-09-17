@@ -7,7 +7,7 @@ import type {
   JobPublisher,
   SandboxProvider,
 } from "@bot/adapter-kit";
-import { clearThread, type PrismaClient, type ThreadEvents } from "@bot/db";
+import { clearThread, type PrismaClient, type ThreadEvents } from "@bot/database";
 import { describe, expect, it, vi } from "vitest";
 import {
   acquireComputerExecutionLease,

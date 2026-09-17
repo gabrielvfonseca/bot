@@ -1,5 +1,5 @@
 import { SCREEN_TARGET_ENDPOINT } from "@bot/core/node/screen-capability";
-import type { PrismaClient } from "@bot/db";
+import type { PrismaClient } from "@bot/database";
 import { Hono } from "hono";
 import { describe, expect, it, vi } from "vitest";
 import { addScreenProxyCapability, mountScreenTarget } from "./screen-proxy.js";

@@ -7,7 +7,7 @@ import type {
 import { CloudAgentRequestRejected, runContinueJob } from "@bot/adapter-kit";
 import type { MessageBlock } from "@bot/contracts";
 import { cloudAgentHttpsUrl } from "@bot/core";
-import { appendEventInTransaction, type CloudAgent, Prisma } from "@bot/db";
+import { appendEventInTransaction, type CloudAgent, Prisma } from "@bot/database";
 import { getLogger } from "@bot/logging";
 import { cloudAgentsEnabled } from "./cloud-agent-factory.js";
 import { type CloudAgentDeps, cloudAgentBlock, enqueueCloudAgent } from "./cloud-agent-service.js";

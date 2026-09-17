@@ -362,7 +362,7 @@ export const COMPOSE_MANUAL_UPGRADE_COMMANDS = COMPOSE_PULL_UPGRADE_COMMANDS;
 /** Exact host commands from docs/self-host.md for source / `pnpm dev` installs. */
 export const SOURCE_MANUAL_UPGRADE_COMMANDS = [
   "git pull",
-  "pnpm --filter @bot/db migrate",
+  "pnpm --filter @bot/database migrate",
   "# Restart the API and worker processes",
 ] as const;
 

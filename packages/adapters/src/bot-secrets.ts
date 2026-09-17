@@ -1,6 +1,6 @@
 import { randomBytes } from "node:crypto";
 import { BotSecretDestination, SecretHttpRequest } from "@bot/contracts";
-import type { Prisma, PrismaClient } from "@bot/db";
+import type { Prisma, PrismaClient } from "@bot/database";
 import { combineSignals, redactConnectorPayload } from "./connector-safety.js";
 import { createSafeRemoteFetch, type RemoteTransportDependencies } from "./remote-mcp.js";
 import type { EncryptedSecretStore } from "./secrets.js";

@@ -18,7 +18,7 @@ import {
   type Prisma,
   type PrismaClient,
   withTransactionRetry,
-} from "@bot/db";
+} from "@bot/database";
 import { getLogger } from "@bot/logging";
 import { toComputerRef } from "./computer-support.js";
 import { checkpointAndRecordComputerWorkspace } from "./computer-workspace.js";

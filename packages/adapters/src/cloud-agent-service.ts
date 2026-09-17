@@ -7,7 +7,7 @@ import {
   createThreadMessageInTransaction,
   type PrismaClient,
   type ThreadEvents,
-} from "@bot/db";
+} from "@bot/database";
 import { getLogger } from "@bot/logging";
 import { type CloudAgentConnection, cloudAgentsEnabled } from "./cloud-agent-factory.js";
 import { cloudAgentLaunchSchema, cloudAgentReplySchema } from "./cloud-agent-tools.js";

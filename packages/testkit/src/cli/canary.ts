@@ -41,8 +41,8 @@ async function main() {
       DATA_DIR: dataDir,
     };
     if (postgres) {
-      execSync("pnpm --filter @bot/db generate", { stdio: "inherit", env });
-      execSync("pnpm --filter @bot/db exec prisma migrate deploy", {
+      execSync("pnpm --filter @bot/database generate", { stdio: "inherit", env });
+      execSync("pnpm --filter @bot/database exec prisma migrate deploy", {
         stdio: "inherit",
         env,
         cwd: path.resolve("packages/db"),

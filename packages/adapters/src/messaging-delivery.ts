@@ -7,8 +7,8 @@ import type {
 import { messagingDeliverJob, runContinueJob } from "@bot/adapter-kit";
 import type { MessageBlock } from "@bot/contracts";
 import { botMessageHopExhausted, nextBotMessageHop } from "@bot/core";
-import type { PrismaClient, ThreadEvents } from "@bot/db";
-import { appendEventInTransaction, createThreadMessageInTransaction } from "@bot/db";
+import type { PrismaClient, ThreadEvents } from "@bot/database";
+import { appendEventInTransaction, createThreadMessageInTransaction } from "@bot/database";
 import { getLogger } from "@bot/logging";
 
 /**

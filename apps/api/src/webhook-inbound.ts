@@ -2,7 +2,7 @@ import { createHash } from "node:crypto";
 import type { JobPublisher } from "@bot/adapter-kit";
 import { runContinueJob } from "@bot/adapter-kit";
 import type { EncryptedSecretStore } from "@bot/adapters";
-import type { PrismaClient } from "@bot/db";
+import type { PrismaClient } from "@bot/database";
 import { getLogger } from "@bot/logging";
 
 export const WEBHOOK_MAX_BODY_BYTES = 64 * 1024;

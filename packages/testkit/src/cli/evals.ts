@@ -130,11 +130,11 @@ async function main() {
       CLOUD_AGENT_PROVIDER: "",
       MODEL_API_KEY: "",
     });
-    execFileSync("pnpm", ["--filter", "@bot/db", "generate"], {
+    execFileSync("pnpm", ["--filter", "@bot/database", "generate"], {
       stdio: "pipe",
       timeout: 120_000,
     });
-    execFileSync("pnpm", ["--filter", "@bot/db", "exec", "prisma", "migrate", "deploy"], {
+    execFileSync("pnpm", ["--filter", "@bot/database", "exec", "prisma", "migrate", "deploy"], {
       stdio: "pipe",
       timeout: 120_000,
     });

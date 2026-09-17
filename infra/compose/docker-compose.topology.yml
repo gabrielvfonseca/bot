@@ -68,7 +68,7 @@ services:
     command:
       - bash
       - -lc
-      - pnpm --filter @bot/db exec prisma migrate deploy && pnpm --filter @bot/api start
+      - pnpm --filter @bot/database exec prisma migrate deploy && pnpm --filter @bot/api start
     environment: &app-environment
       NODE_ENV: production
       DATABASE_URL: postgres://bot:topology-only-password@postgres:5432/bot

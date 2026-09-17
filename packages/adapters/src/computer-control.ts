@@ -5,7 +5,7 @@ import {
   runContinueJob,
   type SandboxProvider,
 } from "@bot/adapter-kit";
-import type { PrismaClient, ThreadEvents } from "@bot/db";
+import type { PrismaClient, ThreadEvents } from "@bot/database";
 import { getLogger } from "@bot/logging";
 import { toComputerRef } from "./computer-support.js";
 

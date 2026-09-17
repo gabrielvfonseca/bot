@@ -7,7 +7,7 @@ import type {
   SandboxProvider,
 } from "@bot/adapter-kit";
 import { messagingDeliverJob } from "@bot/adapter-kit";
-import type { PrismaClient, ThreadEvents } from "@bot/db";
+import type { PrismaClient, ThreadEvents } from "@bot/database";
 import { getLogger } from "@bot/logging";
 import type { CloudAgentConnection } from "./cloud-agent-factory.js";
 import { pollCloudAgent } from "./cloud-agent-poll.js";

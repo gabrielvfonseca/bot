@@ -10,7 +10,7 @@ import type {
   MemoryStore,
   PortableFile,
 } from "@bot/adapter-kit";
-import { Prisma, type PrismaClient, withTransactionRetry } from "@bot/db";
+import { Prisma, type PrismaClient, withTransactionRetry } from "@bot/database";
 
 export class MarkdownMemoryStore implements MemoryStore {
   constructor(private readonly prisma: PrismaClient) {}

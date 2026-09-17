@@ -6,7 +6,7 @@ import {
   serializeModelSecret,
   toOAuthCredential,
 } from "@bot/adapters";
-import { findDefaultModelCredential, findModelCredential, type PrismaClient } from "@bot/db";
+import { findDefaultModelCredential, findModelCredential, type PrismaClient } from "@bot/database";
 import { getLogger } from "@bot/logging";
 
 const MAX_RULES_CHARS = 4_000;

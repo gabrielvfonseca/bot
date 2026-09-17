@@ -3,7 +3,7 @@ import { type AgentRuntime, type JobPublisher, runJobKey } from "@bot/adapter-ki
 import { MessagingTeamChatEmulator } from "@bot/adapters";
 import type { ModelConnectInput, RunStatus } from "@bot/contracts";
 import { ACTIVE_RUN_STATUSES, isTerminal } from "@bot/core";
-import type { createDb } from "@bot/db";
+import type { createDb } from "@bot/database";
 import { sessionCookieHeader } from "../index.js";
 import type { EvalCase, Evidence } from "./cases.js";
 import { emptyTrial, type FailureCategory, redact, type TrialResult } from "./report.js";

@@ -1,4 +1,4 @@
-import type { PrismaClient } from "@bot/db";
+import type { PrismaClient } from "@bot/database";
 import { describe, expect, it, vi } from "vitest";
 import { mergeConnectedPlugins } from "./composio-connector.js";
 import { persistLivePluginConnections, selectRunConnections } from "./executor.js";

@@ -1,5 +1,5 @@
 import type { BackgroundJob, JobPublisher, SandboxProvider } from "@bot/adapter-kit";
-import type { PrismaClient, ThreadEvents } from "@bot/db";
+import type { PrismaClient, ThreadEvents } from "@bot/database";
 import { createLogger, createTestSink, installLogger } from "@bot/logging";
 import { describe, expect, it, vi } from "vitest";
 import {

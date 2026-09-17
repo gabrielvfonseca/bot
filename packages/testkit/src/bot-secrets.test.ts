@@ -3,7 +3,7 @@ import { tmpdir } from "node:os";
 import path from "node:path";
 import type { AgentRuntimeEvent } from "@bot/adapter-kit";
 import { ScriptedAgentRuntime } from "@bot/adapters";
-import { answerRunInput } from "@bot/db";
+import { answerRunInput } from "@bot/database";
 import { afterAll, beforeAll, describe, expect, it, vi } from "vitest";
 import type { createApp } from "../../../apps/api/src/app.ts";
 

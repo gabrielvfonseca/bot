@@ -5,7 +5,7 @@ import {
   runContinueJob,
 } from "@bot/adapter-kit";
 import type { MessageBlock } from "@bot/contracts";
-import type { Pool, PrismaClient, ThreadEvents } from "@bot/db";
+import type { Pool, PrismaClient, ThreadEvents } from "@bot/database";
 import { getLogger } from "@bot/logging";
 import type { PoolClient } from "pg";
 import { returnBotMessageOutcome } from "./bot-messages.js";

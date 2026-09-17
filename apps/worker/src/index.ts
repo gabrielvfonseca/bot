@@ -50,7 +50,7 @@ import {
   createThreadEvents,
   isTooManyDatabaseConnections,
   parsePositiveInteger,
-} from "@bot/db";
+} from "@bot/database";
 import { SERVICE_NAMES } from "@bot/logging";
 import { createRootLogger } from "@bot/logging/axiom";
 import { MarkdownMemoryStore } from "@bot/memory";

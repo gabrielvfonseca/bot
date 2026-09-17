@@ -423,7 +423,7 @@ Sidecar `/apply` and `/rollback` recover a failed recreate by redeploying the pr
 image when possible; if that also fails, they report a possible mixed-version runtime.
 
 Source checkouts (not Compose) still upgrade the old way: pull, rebuild with
-`GIT_SHA=$(git rev-parse HEAD)`, run `pnpm --filter @bot/db migrate`, then restart API and worker.
+`GIT_SHA=$(git rev-parse HEAD)`, run `pnpm --filter @bot/database migrate`, then restart API and worker.
 Product contracts stay compatible across cloud and self-hosted.
 
 ### Space privacy-boundary migration

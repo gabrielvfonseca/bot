@@ -10,7 +10,7 @@ import type {
 } from "@bot/adapter-kit";
 import type { ComputerMode } from "@bot/contracts";
 import { parseScreenLeaseId } from "@bot/core";
-import type { PrismaClient } from "@bot/db";
+import type { PrismaClient } from "@bot/database";
 import { normalizeWorkspacePath, teamBotWorkspaceDirectory } from "./computer-support.js";
 import { LocalAgentHomeStore } from "./home.js";
 

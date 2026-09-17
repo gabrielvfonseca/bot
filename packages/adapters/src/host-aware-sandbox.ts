@@ -11,7 +11,7 @@ import type {
   SandboxProvider,
   ScreenRequest,
 } from "@bot/adapter-kit";
-import type { PrismaClient } from "@bot/db";
+import type { PrismaClient } from "@bot/database";
 import { DesktopSandboxProvider } from "./desktop-sandbox.js";
 import { createSandboxProvider, type SandboxProviderOptions } from "./sandbox-factory.js";
 

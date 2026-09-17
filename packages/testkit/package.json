@@ -16,7 +16,7 @@
     "@bot/adapters": "workspace:*",
     "@bot/contracts": "workspace:*",
     "@bot/core": "workspace:*",
-    "@bot/db": "workspace:*",
+    "@bot/database": "workspace:*",
     "@testcontainers/postgresql": "12.1.0",
     "pngjs": "7.0.0"
   },

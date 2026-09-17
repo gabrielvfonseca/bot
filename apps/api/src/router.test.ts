@@ -2,7 +2,7 @@ import { RPCHandler } from "@orpc/server/fetch";
 import { COMPUTER_SCREEN_UNAVAILABLE, ComputerScreenUnavailableError } from "@bot/adapters";
 import type { Actor } from "@bot/contracts";
 import { openScreenCapability } from "@bot/core/node/screen-capability";
-import type { PrismaClient } from "@bot/db";
+import type { PrismaClient } from "@bot/database";
 import { createLogger, createTestSink, installLogger } from "@bot/logging";
 import { describe, expect, it, vi } from "vitest";
 import { createRouter, type RouterDeps } from "./router.js";

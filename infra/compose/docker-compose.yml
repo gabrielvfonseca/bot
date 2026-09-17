@@ -64,7 +64,7 @@ services:
     build:
       context: ../..
       dockerfile: infra/compose/Dockerfile
-    command: ["bash", "-lc", "pnpm --filter @bot/db exec prisma migrate deploy && pnpm --filter @bot/api start"]
+    command: ["bash", "-lc", "pnpm --filter @bot/database exec prisma migrate deploy && pnpm --filter @bot/api start"]
     env_file:
       - ../../.env
     environment:

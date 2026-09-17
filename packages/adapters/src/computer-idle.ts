@@ -7,7 +7,7 @@ import {
   type SandboxProvider,
 } from "@bot/adapter-kit";
 import { ACTIVE_RUN_STATUSES } from "@bot/core";
-import type { PrismaClient, ThreadEvents } from "@bot/db";
+import type { PrismaClient, ThreadEvents } from "@bot/database";
 import { expireComputerControl, hasActiveComputerControl } from "./computer-control.js";
 import { toComputerRef } from "./computer-lifecycle.js";
 import { checkpointComputerWorkspace } from "./computer-workspace.js";

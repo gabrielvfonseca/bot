@@ -21,7 +21,7 @@ import {
   type Prisma,
   type PrismaClient,
   type ThreadEvents,
-} from "@bot/db";
+} from "@bot/database";
 import { scheduleComputerSleep } from "./computer-idle.js";
 import { toComputerRef } from "./computer-support.js";
 

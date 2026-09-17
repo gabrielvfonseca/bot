@@ -2,7 +2,7 @@ import { mkdtempSync, rmSync } from "node:fs";
 import { tmpdir } from "node:os";
 import path from "node:path";
 import { approvalEffectKey } from "@bot/core/node/approval-effect-key";
-import { createThreadEvents, createThreadMessage, loadRunHistoryMessages } from "@bot/db";
+import { createThreadEvents, createThreadMessage, loadRunHistoryMessages } from "@bot/database";
 import { afterAll, beforeAll, describe, expect, it } from "vitest";
 import type { createApp } from "../../../apps/api/src/app.ts";
 

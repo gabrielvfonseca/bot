@@ -5,7 +5,7 @@ import {
   type IntegrationProviderId,
   IntegrationProviderIdSchema,
 } from "@bot/contracts";
-import type { PrismaClient } from "@bot/db";
+import type { PrismaClient } from "@bot/database";
 import { ComposioConnector } from "./composio-connector.js";
 import { PipedreamConnector } from "./pipedream-connector.js";
 import type { EncryptedSecretStore } from "./secrets.js";

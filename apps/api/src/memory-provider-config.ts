@@ -8,7 +8,7 @@ import {
   toStringRecord,
 } from "@bot/adapters";
 import type { Actor } from "@bot/contracts";
-import { findSpaceMemoryConfig, Prisma, type PrismaClient } from "@bot/db";
+import { findSpaceMemoryConfig, Prisma, type PrismaClient } from "@bot/database";
 import { withSerializableRetry } from "./serializable-retry.js";
 
 export interface MemoryProviderConfigDeps {

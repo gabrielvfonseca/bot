@@ -5,7 +5,7 @@ import type {
   ConnectorProvider,
   ConnectorTool,
 } from "@bot/adapter-kit";
-import type { PrismaClient } from "@bot/db";
+import type { PrismaClient } from "@bot/database";
 import { z } from "zod";
 import {
   AuthSchema,

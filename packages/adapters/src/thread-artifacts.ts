@@ -14,7 +14,7 @@ import {
   messageBlockForArtifact,
   validateAttachmentMimeType,
 } from "@bot/core";
-import type { PrismaClient } from "@bot/db";
+import type { PrismaClient } from "@bot/database";
 import { resolveBotWorkspacePath } from "./computer-support.js";
 
 export type MaterializedThreadFile = {

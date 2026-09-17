@@ -2,7 +2,7 @@ import type { AgentRunRequest, AgentRuntime, JobPublisher } from "@bot/adapter-k
 import { historyCompactJob } from "@bot/adapter-kit";
 import type { MessageBlock } from "@bot/contracts";
 import { blocksToAgentHistoryText } from "@bot/core";
-import type { PrismaClient } from "@bot/db";
+import type { PrismaClient } from "@bot/database";
 import { getLogger } from "@bot/logging";
 import { resolveDeploymentModel } from "./deployment-model.js";
 import type {

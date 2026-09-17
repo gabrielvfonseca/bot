@@ -1,4 +1,4 @@
-import { appendEventInTransaction, type Prisma, type PrismaClient } from "@bot/db";
+import { appendEventInTransaction, type Prisma, type PrismaClient } from "@bot/database";
 import { getLogger } from "@bot/logging";
 
 type AppendEvent = typeof appendEventInTransaction;

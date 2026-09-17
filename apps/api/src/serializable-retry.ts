@@ -1,1 +1,1 @@
-export { withTransactionRetry as withSerializableRetry } from "@bot/db";
+export { withTransactionRetry as withSerializableRetry } from "@bot/database";

@@ -15,7 +15,7 @@ import {
 } from "@playwright/test";
 import { abortableDelay } from "@bot/core";
 import { loadRootEnv } from "@bot/core/node/load-root-env";
-import { createThreadMessage, type PrismaClient } from "@bot/db";
+import { createThreadMessage, type PrismaClient } from "@bot/database";
 import { PostgreSqlContainer } from "@testcontainers/postgresql";
 import type { createApp } from "../../../../apps/api/src/app.ts";
 import {
@@ -191,8 +191,8 @@ function buildProductionArtifacts(env: NodeJS.ProcessEnv) {
 }
 
 function migrateDatabase(env: NodeJS.ProcessEnv) {
-  run("pnpm", ["--filter", "@bot/db", "generate"], env);
-  run("pnpm", ["--filter", "@bot/db", "exec", "prisma", "migrate", "deploy"], env);
+  run("pnpm", ["--filter", "@bot/database", "generate"], env);
+  run("pnpm", ["--filter", "@bot/database", "exec", "prisma", "migrate", "deploy"], env);
 }
 
 function run(command: string, args: string[], env: NodeJS.ProcessEnv) {

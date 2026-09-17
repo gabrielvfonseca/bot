@@ -8,7 +8,7 @@ import {
   lockOwnedGroup,
   type PrismaClient,
   touchGroupUpdatedAt,
-} from "@bot/db";
+} from "@bot/database";
 import { getLogger } from "@bot/logging";
 import type { ExecutorDeps } from "./executor.js";
 

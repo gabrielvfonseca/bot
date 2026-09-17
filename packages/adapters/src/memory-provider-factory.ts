@@ -1,5 +1,5 @@
 import type { DurableMemoryScope, SemanticMemoryProvider } from "@bot/adapter-kit";
-import type { PrismaClient } from "@bot/db";
+import type { PrismaClient } from "@bot/database";
 import type { EncryptedSecretStore } from "./secrets.js";
 import {
   classifySerenityConnectionSettings,

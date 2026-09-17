@@ -8,8 +8,8 @@ import {
   nextBotMessageHop,
   sanitizeMessagingLabel,
 } from "@bot/core";
-import type { PrismaClient, ThreadEvents } from "@bot/db";
-import { appendEventInTransaction, createThreadMessageInTransaction } from "@bot/db";
+import type { PrismaClient, ThreadEvents } from "@bot/database";
+import { appendEventInTransaction, createThreadMessageInTransaction } from "@bot/database";
 import { getLogger } from "@bot/logging";
 import { currentBotMessageHop } from "./bot-messages.js";
 

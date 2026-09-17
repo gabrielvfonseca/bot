@@ -41,11 +41,11 @@ async function main() {
     SIGNUP_ALLOWLIST: "",
   };
   try {
-    execFileSync("pnpm", ["--filter", "@bot/db", "generate"], {
+    execFileSync("pnpm", ["--filter", "@bot/database", "generate"], {
       stdio: "inherit",
       env,
     });
-    execFileSync("pnpm", ["--filter", "@bot/db", "exec", "prisma", "migrate", "deploy"], {
+    execFileSync("pnpm", ["--filter", "@bot/database", "exec", "prisma", "migrate", "deploy"], {
       stdio: "inherit",
       env,
       cwd: path.resolve("packages/db"),

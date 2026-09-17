@@ -13,7 +13,7 @@ import {
   type PrismaClient,
   parseComputerMode,
   type ThreadEvents,
-} from "@bot/db";
+} from "@bot/database";
 import {
   clearInactiveUserComputerControl,
   expireComputerControl,

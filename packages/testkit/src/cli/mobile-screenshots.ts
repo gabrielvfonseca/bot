@@ -10,7 +10,7 @@ import {
   PipedreamConnector,
   ThirdPartyConnectorEmulator,
 } from "@bot/adapters";
-import { createThreadMessage, type PrismaClient } from "@bot/db";
+import { createThreadMessage, type PrismaClient } from "@bot/database";
 import { sessionCookieHeader } from "../index.js";
 import { runProcess } from "./process.js";
 
@@ -38,7 +38,7 @@ async function main() {
   await mkdir(REPORT_DIR, { recursive: true });
   await mkdir(DATA_DIR, { recursive: true });
 
-  execFileSync("pnpm", ["--filter", "@bot/db", "exec", "prisma", "migrate", "deploy"], {
+  execFileSync("pnpm", ["--filter", "@bot/database", "exec", "prisma", "migrate", "deploy"], {
     cwd: path.join(ROOT, "packages", "db"),
     env: process.env,
     stdio: "inherit",

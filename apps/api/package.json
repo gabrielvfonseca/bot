@@ -17,7 +17,7 @@
     "@bot/auth": "workspace:*",
     "@bot/contracts": "workspace:*",
     "@bot/core": "workspace:*",
-    "@bot/db": "workspace:*",
+    "@bot/database": "workspace:*",
     "@bot/logging": "workspace:*",
     "@bot/memory": "workspace:*",
     "hono": "4.13.7"

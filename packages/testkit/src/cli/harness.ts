@@ -78,8 +78,8 @@ async function main() {
     process.env.SIGNUP_ALLOWLIST = "";
     process.env.CI = "1";
 
-    execSync("pnpm --filter @bot/db generate", { stdio: "inherit", env: process.env });
-    execSync("pnpm --filter @bot/db exec prisma migrate deploy", {
+    execSync("pnpm --filter @bot/database generate", { stdio: "inherit", env: process.env });
+    execSync("pnpm --filter @bot/database exec prisma migrate deploy", {
       stdio: "inherit",
       env: process.env,
       cwd: path.resolve("packages/db"),
