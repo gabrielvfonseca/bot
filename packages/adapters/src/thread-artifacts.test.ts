@@ -1,11 +1,6 @@
-import type {
-  AdapterContext,
-  ArtifactStore,
-  ComputerRef,
-  SandboxProvider,
-} from "@rakazo/adapter-kit";
-import type { MessageBlock } from "@rakazo/contracts";
-import type { PrismaClient } from "@rakazo/db";
+import type { AdapterContext, ArtifactStore, ComputerRef, SandboxProvider } from "@bot/adapter-kit";
+import type { MessageBlock } from "@bot/contracts";
+import type { PrismaClient } from "@bot/database";
 import { describe, expect, it, vi } from "vitest";
 import {
   attachWorkspaceFileToThread,

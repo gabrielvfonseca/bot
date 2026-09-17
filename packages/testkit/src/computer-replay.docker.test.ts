@@ -3,13 +3,9 @@ import { randomUUID } from "node:crypto";
 import { mkdir, writeFile } from "node:fs/promises";
 import type { AddressInfo } from "node:net";
 import path from "node:path";
+import type { ComputerRef } from "@bot/adapter-kit";
+import { ComputerBrowserProvider, DockerSandboxProvider, FakeSandboxProvider } from "@bot/adapters";
 import { serve } from "@hono/node-server";
-import type { ComputerRef } from "@rakazo/adapter-kit";
-import {
-  ComputerBrowserProvider,
-  DockerSandboxProvider,
-  FakeSandboxProvider,
-} from "@rakazo/adapters";
 import { describe, expect, it } from "vitest";
 import {
   assertContactsExport,

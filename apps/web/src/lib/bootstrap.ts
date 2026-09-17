@@ -1,14 +1,11 @@
-import type { AppBootstrap } from "@rakazo/contracts";
+import type { AppBootstrap } from "@bot/contracts";
 import { initialBootstrapTarget } from "./bootstrap-target";
 import { markOnce } from "./performance";
 import { rpc } from "./rpc";
 
 let primedBootstrap: { botId?: string; promise: Promise<AppBootstrap> } | null = null;
 
-const initialTarget = initialBootstrapTarget(
-  window.location.pathname,
-  Boolean(window.rakazoDesktop),
-);
+const initialTarget = initialBootstrapTarget(window.location.pathname, Boolean(window.botDesktop));
 if (initialTarget) {
   const { botId } = initialTarget;
   const promise = requestBootstrap(botId);

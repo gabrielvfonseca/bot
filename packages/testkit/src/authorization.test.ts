@@ -1,14 +1,14 @@
 import { mkdtempSync, rmSync } from "node:fs";
 import { tmpdir } from "node:os";
 import path from "node:path";
-import { ComposioEmulator } from "@rakazo/adapters";
-import type { appContract, Space, SpaceNavigation } from "@rakazo/contracts";
+import { ComposioEmulator } from "@bot/adapters";
+import type { appContract, Space, SpaceNavigation } from "@bot/contracts";
 import {
   claimEmptySpaceDeletionForMember,
   deleteEmptySpaceForMember,
   releaseSpaceDeletionClaim,
   renewSpaceDeletionClaim,
-} from "@rakazo/db";
+} from "@bot/database";
 import { afterAll, beforeAll, describe, expect, it, vi } from "vitest";
 import type { createApp } from "../../../apps/api/src/app.ts";
 import { sessionCookieHeader } from "./index.js";
@@ -35,7 +35,7 @@ describeWithDatabase("API authorization and resource isolation", () => {
   let handles: AppHandles;
   let app: App;
   const stamp = `${Date.now()}-${Math.random().toString(36).slice(2)}`;
-  const dataDir = mkdtempSync(path.join(tmpdir(), "rakazo-authz-"));
+  const dataDir = mkdtempSync(path.join(tmpdir(), "bot-authz-"));
 
   beforeAll(async () => {
     const { createApp } = await import("../../../apps/api/src/app.ts");
@@ -198,10 +198,10 @@ describeWithDatabase("API authorization and resource isolation", () => {
   });
 
   it("prevents one user from reading or mutating another user's resources", async () => {
-    const owner = await signup(app, `owner-authz-${stamp}@rakazo.test`, "Authorization Owner");
+    const owner = await signup(app, `owner-authz-${stamp}@bot.test`, "Authorization Owner");
     const intruder = await signup(
       app,
-      `intruder-authz-${stamp}@rakazo.test`,
+      `intruder-authz-${stamp}@bot.test`,
       "Authorization Intruder",
     );
     const ownerActor = await rpc<Actor>(app, owner, "me");
@@ -468,8 +468,8 @@ describeWithDatabase("API authorization and resource isolation", () => {
   });
 
   it("keeps approval rules private to each user in a shared Space", async () => {
-    const owner = await signup(app, `approval-owner-${stamp}@rakazo.test`, "Approval Owner");
-    const member = await signup(app, `approval-member-${stamp}@rakazo.test`, "Approval Member");
+    const owner = await signup(app, `approval-owner-${stamp}@bot.test`, "Approval Owner");
+    const member = await signup(app, `approval-member-${stamp}@bot.test`, "Approval Member");
     const ownerActor = await rpc<Actor>(app, owner, "me");
     const memberActor = await rpc<Actor>(app, member, "me");
 
@@ -509,7 +509,7 @@ describeWithDatabase("API authorization and resource isolation", () => {
   });
 
   it("keeps space data and computers behind the selected space boundary", async () => {
-    const cookie = await signup(app, `spaces-${stamp}@rakazo.test`, "Space Owner");
+    const cookie = await signup(app, `spaces-${stamp}@bot.test`, "Space Owner");
     const original = await rpc<Actor>(app, cookie, "me");
     const originalBot = await rpc<Bot>(app, cookie, "bots/create", botInput("Open source"));
     const support = await rpc<Space>(app, cookie, "spaces/create", {
@@ -628,12 +628,12 @@ describeWithDatabase("API authorization and resource isolation", () => {
     expect(storedSupport?.spaceId).toBe(support.id);
     expect(storedOriginal?.computerId).not.toBe(storedSupport?.computerId);
 
-    const intruder = await signup(app, `spaces-intruder-${stamp}@rakazo.test`, "Intruder");
+    const intruder = await signup(app, `spaces-intruder-${stamp}@bot.test`, "Intruder");
     await expectDenied(app, intruder, "bots/list", {}, support.id);
   });
 
   it("enforces the space limit across concurrent creation requests", async () => {
-    const cookie = await signup(app, `space-limit-${stamp}@rakazo.test`, "Space Limit");
+    const cookie = await signup(app, `space-limit-${stamp}@bot.test`, "Space Limit");
     const actor = await rpc<Actor>(app, cookie, "me");
     const currentSpace = await handles.prisma.space.findUniqueOrThrow({
       where: { id: actor.spaceId },
@@ -671,7 +671,7 @@ describeWithDatabase("API authorization and resource isolation", () => {
   });
 
   it("reuses provider credentials and copies their selections into a new Space", async () => {
-    const cookie = await signup(app, `space-provider-copy-${stamp}@rakazo.test`, "Provider Copy");
+    const cookie = await signup(app, `space-provider-copy-${stamp}@bot.test`, "Provider Copy");
     const actor = await rpc<Actor>(app, cookie, "me");
     const model = await rpc<ModelCredential>(app, cookie, "models/connect", {
       provider: "copy-provider",
@@ -746,7 +746,7 @@ describeWithDatabase("API authorization and resource isolation", () => {
   });
 
   it("shares model credentials while keeping defaults private to each space", async () => {
-    const cookie = await signup(app, `model-defaults-${stamp}@rakazo.test`, "Model Defaults");
+    const cookie = await signup(app, `model-defaults-${stamp}@bot.test`, "Model Defaults");
     const actor = await rpc<Actor>(app, cookie, "me");
     const support = await rpc<Space>(app, cookie, "spaces/create", { name: "Support models" });
     const expectSpaceModelDefault = async (spaceId: string, provider: string, modelId: string) => {
@@ -844,7 +844,7 @@ describeWithDatabase("API authorization and resource isolation", () => {
   });
 
   it("deletes only empty, non-default spaces", async () => {
-    const cookie = await signup(app, `space-delete-${stamp}@rakazo.test`, "Space Delete");
+    const cookie = await signup(app, `space-delete-${stamp}@bot.test`, "Space Delete");
     const actor = await rpc<Actor>(app, cookie, "me");
     const empty = await rpc<Space>(app, cookie, "spaces/create", { name: "Temporary" });
     const busy = await rpc<Space>(app, cookie, "spaces/create", { name: "Busy" });
@@ -880,7 +880,7 @@ describeWithDatabase("API authorization and resource isolation", () => {
     const navigation = await rpc<SpaceNavigation>(app, cookie, "spaces/list");
     expect(navigation.spaces.map((space) => space.id)).not.toContain(empty.id);
 
-    const intruder = await signup(app, `space-delete-intruder-${stamp}@rakazo.test`, "Intruder");
+    const intruder = await signup(app, `space-delete-intruder-${stamp}@bot.test`, "Intruder");
     await expect(raw(app, intruder, "spaces/remove", { spaceId: busy.id })).resolves.toMatchObject({
       status: 404,
     });
@@ -892,11 +892,7 @@ describeWithDatabase("API authorization and resource isolation", () => {
       where: { id: shared.id },
       select: { organizationId: true },
     });
-    const memberCookie = await signup(
-      app,
-      `space-delete-member-${stamp}@rakazo.test`,
-      "Space Member",
-    );
+    const memberCookie = await signup(app, `space-delete-member-${stamp}@bot.test`, "Space Member");
     const memberActor = await rpc<Actor>(app, memberCookie, "me");
     await handles.prisma.member.deleteMany({ where: { userId: memberActor.userId } });
     await handles.prisma.member.create({
@@ -971,7 +967,7 @@ describeWithDatabase("API authorization and resource isolation", () => {
   });
 
   it("blocks bot creation after empty space deletion is claimed", async () => {
-    const cookie = await signup(app, `space-race-${stamp}@rakazo.test`, "Space Race");
+    const cookie = await signup(app, `space-race-${stamp}@bot.test`, "Space Race");
     const actor = await rpc<Actor>(app, cookie, "me");
     const space = await rpc<Space>(app, cookie, "spaces/create", { name: "Concurrent" });
     await handles.prisma.computer.create({
@@ -1039,7 +1035,7 @@ describeWithDatabase("API authorization and resource isolation", () => {
   });
 
   it("keeps a space claimed after ambiguous sandbox teardown failure", async () => {
-    const cookie = await signup(app, `space-teardown-${stamp}@rakazo.test`, "Teardown");
+    const cookie = await signup(app, `space-teardown-${stamp}@bot.test`, "Teardown");
     const actor = await rpc<Actor>(app, cookie, "me");
     const space = await rpc<Space>(app, cookie, "spaces/create", { name: "Teardown" });
     await handles.prisma.computer.create({
@@ -1097,7 +1093,7 @@ describeWithDatabase("API authorization and resource isolation", () => {
   });
 
   it("times out a hung sandbox teardown without unblocking the space", async () => {
-    const cookie = await signup(app, `space-deadline-${stamp}@rakazo.test`, "Deadline");
+    const cookie = await signup(app, `space-deadline-${stamp}@bot.test`, "Deadline");
     const actor = await rpc<Actor>(app, cookie, "me");
     const space = await rpc<Space>(app, cookie, "spaces/create", { name: "Deadline" });
     await handles.prisma.computer.create({
@@ -1151,7 +1147,7 @@ describeWithDatabase("API authorization and resource isolation", () => {
   });
 
   it("validates custom thinking against the saved connection capability", async () => {
-    const cookie = await signup(app, `custom-thinking-${stamp}@rakazo.test`, "Custom Thinking");
+    const cookie = await signup(app, `custom-thinking-${stamp}@bot.test`, "Custom Thinking");
     const bot = await rpc<Bot>(app, cookie, "bots/create", botInput("Thinking Bot"));
     const connection = {
       provider: "openai-compatible",
@@ -1193,7 +1189,7 @@ describeWithDatabase("API authorization and resource isolation", () => {
   });
 
   it("validates per-bot model overrides against connected providers and catalog", async () => {
-    const cookie = await signup(app, `bot-model-${stamp}@rakazo.test`, "Bot Model");
+    const cookie = await signup(app, `bot-model-${stamp}@bot.test`, "Bot Model");
     const bot = await rpc<
       Bot & {
         modelProvider: string | null;
@@ -1251,7 +1247,7 @@ describeWithDatabase("API authorization and resource isolation", () => {
   });
 
   it("chooses the newest duplicate provider credential when selecting a default", async () => {
-    const cookie = await signup(app, `model-duplicates-${stamp}@rakazo.test`, "Model Duplicates");
+    const cookie = await signup(app, `model-duplicates-${stamp}@bot.test`, "Model Duplicates");
     const actor = await rpc<Actor>(app, cookie, "me");
     const olderSecret = await handles.prisma.secret.create({
       data: {
@@ -1325,8 +1321,8 @@ describeWithDatabase("API authorization and resource isolation", () => {
   });
 
   it("restricts deployment settings to the deployment owner", async () => {
-    const owner = await signup(app, `deployment-owner-${stamp}@rakazo.test`, "Deployment Owner");
-    const other = await signup(app, `deployment-other-${stamp}@rakazo.test`, "Deployment Other");
+    const owner = await signup(app, `deployment-owner-${stamp}@bot.test`, "Deployment Owner");
+    const other = await signup(app, `deployment-other-${stamp}@bot.test`, "Deployment Other");
     const ownerActor = await rpc<Actor>(app, owner, "me");
     const otherActor = await rpc<Actor>(app, other, "me");
     // This test changes a live allowlist; the operator has already proved
@@ -1365,7 +1361,7 @@ describeWithDatabase("API authorization and resource isolation", () => {
         method: "POST",
         headers: { "content-type": "application/json" },
         body: JSON.stringify({
-          email: `closed-${stamp}@rakazo.test`,
+          email: `closed-${stamp}@bot.test`,
           password: "password123",
           name: "Closed Signup",
         }),
@@ -1382,7 +1378,7 @@ describeWithDatabase("API authorization and resource isolation", () => {
         method: "POST",
         headers: { "content-type": "application/json" },
         body: JSON.stringify({
-          email: `not-approved-${stamp}@rakazo.test`,
+          email: `not-approved-${stamp}@bot.test`,
           password: "password123",
           name: "Disallowed Signup",
         }),
@@ -1475,7 +1471,7 @@ async function raw(
     headers: {
       "content-type": "application/json",
       ...(cookie ? { cookie } : {}),
-      ...(spaceId ? { "x-rakazo-space-id": spaceId } : {}),
+      ...(spaceId ? { "x-bot-space-id": spaceId } : {}),
       origin: "http://127.0.0.1:5173",
     },
     body: JSON.stringify({ json: body ?? {} }),

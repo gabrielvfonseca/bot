@@ -1,12 +1,12 @@
 import { timingSafeEqual } from "node:crypto";
-import { hasActiveComputerControl } from "@rakazo/adapters";
-import type { ScreenCapabilityScope } from "@rakazo/core/node/screen-capability";
+import { hasActiveComputerControl } from "@bot/adapters";
+import type { ScreenCapabilityScope } from "@bot/core/node/screen-capability";
 import {
   openScreenCapability,
   SCREEN_TARGET_ENDPOINT,
   sealScreenCapability,
-} from "@rakazo/core/node/screen-capability";
-import type { PrismaClient } from "@rakazo/db";
+} from "@bot/core/node/screen-capability";
+import type { PrismaClient } from "@bot/database";
 import type { Hono } from "hono";
 import { requestBodyLimit } from "./request-body-limit.js";
 

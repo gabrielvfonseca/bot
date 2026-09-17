@@ -1,10 +1,10 @@
 import type { Dirent } from "node:fs";
 import { readdir, rm, stat } from "node:fs/promises";
 import path from "node:path";
+import { getLogger } from "@bot/logging";
 import { type AgentMessage, type Branch, JsonlSessionRepo } from "@earendil-works/pi-agent-core";
 import { BACKGROUND_CONTEXT } from "@earendil-works/pi-agent-core/harness/context";
 import { NodeExecutionEnv } from "@earendil-works/pi-agent-core/node";
-import { getLogger } from "@rakazo/logging";
 
 export const PI_SESSION_RETENTION_DAYS = 30;
 export const PI_SESSION_MAX_FILES_PER_BOT = 100;
@@ -147,7 +147,7 @@ export interface PiSessionRecorder {
 
 /**
  * Persists the low-level Agent transcript using Pi's native JSONL session format.
- * This is deliberately a recorder only: Rakazo remains responsible for running
+ * This is deliberately a recorder only: Bot remains responsible for running
  * the agent and for its product history in Postgres.
  */
 export class PiJsonlSessionRecorder implements PiSessionRecorder {
@@ -188,12 +188,12 @@ export class PiJsonlSessionRecorder implements PiSessionRecorder {
       input.runId,
     );
 
-    await handle.appendCustomEntry("rakazo_context", {
-      rakazoUserId: input.userId,
-      rakazoBotId: input.botId,
-      rakazoRunId: input.runId,
-      rakazoThreadId: input.threadId,
-      ...(input.traceId ? { rakazoTraceId: input.traceId } : {}),
+    await handle.appendCustomEntry("bot_context", {
+      botUserId: input.userId,
+      botBotId: input.botId,
+      botRunId: input.runId,
+      botThreadId: input.threadId,
+      ...(input.traceId ? { botTraceId: input.traceId } : {}),
       model: input.model,
       provider: input.provider,
       thinkingLevel: input.thinkingLevel,

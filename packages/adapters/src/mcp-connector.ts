@@ -4,10 +4,10 @@ import type {
   ConnectorEvent,
   ConnectorProvider,
   ConnectorTool,
-} from "@rakazo/adapter-kit";
-import { isLocalMcpHost } from "@rakazo/contracts";
-import type { McpServer, PrismaClient } from "@rakazo/db";
-import { getLogger } from "@rakazo/logging";
+} from "@bot/adapter-kit";
+import { isLocalMcpHost } from "@bot/contracts";
+import type { McpServer, PrismaClient } from "@bot/database";
+import { getLogger } from "@bot/logging";
 import { redactConnectorPayload, sanitizeConnectorError } from "./connector-safety.js";
 import {
   CATALOG_EXECUTE,
@@ -265,7 +265,7 @@ export class McpConnector implements ConnectorProvider {
     server: McpServer,
     context: AdapterContext,
   ): Promise<{ session: McpSession; material: OAuthMaterial }> {
-    const session = new McpSession({ name: `rakazo-${server.slug}` });
+    const session = new McpSession({ name: `bot-${server.slug}` });
     try {
       const secret = server.secretId
         ? await this.prisma.secret.findFirst({

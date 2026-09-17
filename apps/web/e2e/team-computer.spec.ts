@@ -17,7 +17,7 @@ test("Team Computer gives bots a home folder plus shared space while Private sta
   const sharedMarker = `shared-${stamp}`;
   const privateMarker = `private-${stamp}`;
 
-  await signup(page, `team-computer-${stamp}@rakazo.test`, "password12", "Team Computer");
+  await signup(page, `team-computer-${stamp}@bot.test`, "password12", "Team Computer");
   await completeOnboarding(page);
   const chiefId = activeBotId(page);
 
@@ -85,7 +85,7 @@ test("user control leaves another Team bot's screen available", async ({ page },
   const stamp = Date.now();
   const marker = `after-release-${stamp}`;
 
-  await signup(page, `team-control-${stamp}@rakazo.test`, "password12", "Team Control");
+  await signup(page, `team-control-${stamp}@bot.test`, "password12", "Team Control");
   await completeOnboarding(page);
   const chiefId = activeBotId(page);
   const workerId = await createBot(page, "Worker", "team");
@@ -126,7 +126,7 @@ test("user control leaves another Team bot's screen available", async ({ page },
 });
 
 test("a failed control release keeps the computer open for retry", async ({ page }, testInfo) => {
-  await signup(page, `team-release-${Date.now()}@rakazo.test`, "password12", "Team Release");
+  await signup(page, `team-release-${Date.now()}@bot.test`, "password12", "Team Release");
   await completeOnboarding(page);
   await page.getByTitle("Agent computer").click();
   await page.getByTestId("computer-preview").hover();
@@ -149,12 +149,7 @@ test("a failed control release keeps the computer open for retry", async ({ page
 test("an active Team bot must be stopped before user takeover", async ({ page }, testInfo) => {
   const stamp = Date.now();
 
-  await signup(
-    page,
-    `active-team-control-${stamp}@rakazo.test`,
-    "password12",
-    "Active Team Control",
-  );
+  await signup(page, `active-team-control-${stamp}@bot.test`, "password12", "Active Team Control");
   await completeOnboarding(page);
   const chiefId = activeBotId(page);
 

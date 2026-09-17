@@ -1,5 +1,5 @@
+import type { SearchHit } from "@bot/contracts";
 import { Trans } from "@lingui/react/macro";
-import type { SearchHit } from "@rakazo/contracts";
 
 export function SpaceSearchResults({
   hits,

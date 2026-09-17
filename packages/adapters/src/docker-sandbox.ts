@@ -15,9 +15,9 @@ import type {
   SandboxProvider,
   ScreenRequest,
   ScreenSession,
-} from "@rakazo/adapter-kit";
-import { boundedSandboxCommandTimeoutMs, resolveSupervisorToken } from "@rakazo/core";
-import { outgoingCorrelationHeaders } from "@rakazo/logging";
+} from "@bot/adapter-kit";
+import { boundedSandboxCommandTimeoutMs, resolveSupervisorToken } from "@bot/core";
+import { outgoingCorrelationHeaders } from "@bot/logging";
 import {
   boundedComputerActions,
   clampRounded,
@@ -124,12 +124,12 @@ export class DockerSandboxProvider implements SandboxProvider {
   private headers(context: AdapterContext, botId?: string) {
     return {
       authorization: `Bearer ${this.supervisorToken}`,
-      "x-rakazo-space-id": context.spaceId,
+      "x-bot-space-id": context.spaceId,
       ...outgoingCorrelationHeaders(),
-      ...(botId ? { "x-rakazo-bot-id": botId } : {}),
-      ...(context.botId ? { "x-rakazo-screen-id": context.botId } : {}),
-      ...(context.screenLeaseId ? { "x-rakazo-screen-lease-id": context.screenLeaseId } : {}),
-      ...(context.cancelRunWork ? { "x-rakazo-cancel-run-work": "1" } : {}),
+      ...(botId ? { "x-bot-bot-id": botId } : {}),
+      ...(context.botId ? { "x-bot-screen-id": context.botId } : {}),
+      ...(context.screenLeaseId ? { "x-bot-screen-lease-id": context.screenLeaseId } : {}),
+      ...(context.cancelRunWork ? { "x-bot-cancel-run-work": "1" } : {}),
     };
   }
 
@@ -503,9 +503,9 @@ function requestDeadline(timeoutMs: number, message: string) {
 }
 
 function dockerCwd(cwd: string | undefined) {
-  if (!cwd || cwd === "." || cwd === "/" || cwd === "/home/rakazo") return "/home/rakazo";
-  const relative = cwd.startsWith("/home/rakazo/")
-    ? cwd.slice("/home/rakazo/".length)
+  if (!cwd || cwd === "." || cwd === "/" || cwd === "/home/bot") return "/home/bot";
+  const relative = cwd.startsWith("/home/bot/")
+    ? cwd.slice("/home/bot/".length)
     : normalizeWorkspacePath(cwd);
-  return path.posix.join("/home/rakazo", relative);
+  return path.posix.join("/home/bot", relative);
 }

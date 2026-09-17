@@ -1,4 +1,4 @@
-import type { ComputerStatus } from "@rakazo/contracts";
+import type { ComputerStatus } from "@bot/contracts";
 import { afterEach, describe, expect, it, vi } from "vitest";
 import { createComputerRefresh } from "./computer-refresh";
 

@@ -1,20 +1,15 @@
 import { createHash } from "node:crypto";
 import path from "node:path";
-import type {
-  AdapterContext,
-  ArtifactStore,
-  ComputerRef,
-  SandboxProvider,
-} from "@rakazo/adapter-kit";
-import type { ComputerMode, MessageBlock } from "@rakazo/contracts";
-import { ATTACHMENT_MAX_BYTES } from "@rakazo/contracts";
+import type { AdapterContext, ArtifactStore, ComputerRef, SandboxProvider } from "@bot/adapter-kit";
+import type { ComputerMode, MessageBlock } from "@bot/contracts";
+import { ATTACHMENT_MAX_BYTES } from "@bot/contracts";
 import {
   attachmentExtensionForMimeType,
   inferAttachmentMimeType,
   messageBlockForArtifact,
   validateAttachmentMimeType,
-} from "@rakazo/core";
-import type { PrismaClient } from "@rakazo/db";
+} from "@bot/core";
+import type { PrismaClient } from "@bot/database";
 import { resolveBotWorkspacePath } from "./computer-support.js";
 
 export type MaterializedThreadFile = {

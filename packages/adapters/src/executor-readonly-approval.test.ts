@@ -1,6 +1,6 @@
-import type { AgentRunRequest, ConnectorCall, ConnectorTool } from "@rakazo/adapter-kit";
-import type { ActionApprovalRule } from "@rakazo/core";
-import { approvalEffectKey, toolEffectIdempotencyKey } from "@rakazo/core/node/approval-effect-key";
+import type { AgentRunRequest, ConnectorCall, ConnectorTool } from "@bot/adapter-kit";
+import type { ActionApprovalRule } from "@bot/core";
+import { approvalEffectKey, toolEffectIdempotencyKey } from "@bot/core/node/approval-effect-key";
 import { beforeEach, describe, expect, it, vi } from "vitest";
 import { isApprovalPausedResult } from "./approval-effect.js";
 import type * as AutoReviewModule from "./auto-review.js";

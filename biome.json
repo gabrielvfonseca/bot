@@ -63,7 +63,10 @@
   },
   "overrides": [
     {
-      "includes": ["packages/ui-web/src/components/ui/**", "packages/ui-web/src/shadcn.css"],
+      "includes": [
+        "packages/design-system/src/components/ui/**",
+        "packages/design-system/src/shadcn.css"
+      ],
       "linter": {
         "rules": {
           "a11y": {
