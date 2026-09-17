@@ -892,11 +892,7 @@ describeWithDatabase("API authorization and resource isolation", () => {
       where: { id: shared.id },
       select: { organizationId: true },
     });
-    const memberCookie = await signup(
-      app,
-      `space-delete-member-${stamp}@bot.test`,
-      "Space Member",
-    );
+    const memberCookie = await signup(app, `space-delete-member-${stamp}@bot.test`, "Space Member");
     const memberActor = await rpc<Actor>(app, memberCookie, "me");
     await handles.prisma.member.deleteMany({ where: { userId: memberActor.userId } });
     await handles.prisma.member.create({

@@ -1,4 +1,3 @@
-import { Trans, useLingui } from "@lingui/react/macro";
 import type { VoiceCatalogEntry, VoiceCredential, VoiceInfo, VoiceStatus } from "@bot/contracts";
 import {
   Button,
@@ -12,6 +11,7 @@ import {
   NativeSelect,
   NativeSelectOption,
 } from "@bot/design-system";
+import { Trans, useLingui } from "@lingui/react/macro";
 import { XIcon } from "lucide-react";
 import { useEffect, useId, useMemo, useState } from "react";
 import { rpc } from "../lib/rpc";

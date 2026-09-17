@@ -28,12 +28,7 @@ test("onboarding skips model connect when a default model is already available",
 
   const createRequest = page.waitForRequest("**/rpc/bots/create");
   const stamp = Date.now();
-  await signup(
-    page,
-    `model-auto-skip-${stamp}@bot.test`,
-    "password12",
-    `Model auto skip ${stamp}`,
-  );
+  await signup(page, `model-auto-skip-${stamp}@bot.test`, "password12", `Model auto skip ${stamp}`);
 
   await expect(page.getByRole("heading", { name: "Connect a model" })).toBeHidden();
   await expect(page.getByRole("heading", { name: "Server integrations" })).toBeHidden();

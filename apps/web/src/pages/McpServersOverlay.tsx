@@ -1,5 +1,3 @@
-import { t } from "@lingui/core/macro";
-import { Trans, useLingui } from "@lingui/react/macro";
 import type { Bot, BotMcpServer, McpServer, McpTransport } from "@bot/contracts";
 import { deriveMcpSlug } from "@bot/core";
 import {
@@ -23,6 +21,8 @@ import {
   TabsList,
   TabsTrigger,
 } from "@bot/design-system";
+import { t } from "@lingui/core/macro";
+import { Trans, useLingui } from "@lingui/react/macro";
 import { Check, X } from "lucide-react";
 import { useEffect, useState } from "react";
 import { connectMcpOauth, MCP_OAUTH_CHANNEL } from "../lib/mcp-connect";

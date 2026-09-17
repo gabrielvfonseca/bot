@@ -1,9 +1,5 @@
 import { randomUUID } from "node:crypto";
-import type {
-  AdapterContext,
-  BackgroundJobPayloads,
-  CloudAgentSnapshot,
-} from "@bot/adapter-kit";
+import type { AdapterContext, BackgroundJobPayloads, CloudAgentSnapshot } from "@bot/adapter-kit";
 import { CloudAgentRequestRejected, runContinueJob } from "@bot/adapter-kit";
 import type { MessageBlock } from "@bot/contracts";
 import { cloudAgentHttpsUrl } from "@bot/core";

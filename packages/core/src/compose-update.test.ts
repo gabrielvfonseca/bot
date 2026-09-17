@@ -545,12 +545,9 @@ describe("rollback", () => {
 
 describe("managed env assignments", () => {
   it("replaces a managed key in place and leaves everything else alone", () => {
-    const contents = [
-      "# deployment",
-      "POSTGRES_PASSWORD=secret",
-      "BOT_IMAGE_TAG=v1.0.0",
-      "",
-    ].join("\n");
+    const contents = ["# deployment", "POSTGRES_PASSWORD=secret", "BOT_IMAGE_TAG=v1.0.0", ""].join(
+      "\n",
+    );
     expect(upsertEnvAssignments(contents, { BOT_IMAGE_TAG: "v1.1.0" })).toBe(
       ["# deployment", "POSTGRES_PASSWORD=secret", "BOT_IMAGE_TAG=v1.1.0", ""].join("\n"),
     );
@@ -578,10 +575,9 @@ describe("managed env assignments", () => {
   });
 
   it("rewrites every duplicate managed assignment so the last value cannot win", () => {
-    const result = upsertEnvAssignments(
-      "BOT_IMAGE_TAG=stale\nA=1\nBOT_IMAGE_TAG=still-stale\n",
-      { BOT_IMAGE_TAG: "sha-0123456789abcdef0123456789abcdef01234567" },
-    );
+    const result = upsertEnvAssignments("BOT_IMAGE_TAG=stale\nA=1\nBOT_IMAGE_TAG=still-stale\n", {
+      BOT_IMAGE_TAG: "sha-0123456789abcdef0123456789abcdef01234567",
+    });
     expect(result.match(/BOT_IMAGE_TAG=sha-/g)).toHaveLength(2);
     expect(result).not.toContain("stale");
   });

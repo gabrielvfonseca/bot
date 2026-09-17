@@ -1,4 +1,3 @@
-import { Trans, useLingui } from "@lingui/react/macro";
 import type { Me } from "@bot/contracts";
 import {
   Button,
@@ -8,6 +7,7 @@ import {
   DialogHeader,
   DialogTitle,
 } from "@bot/design-system";
+import { Trans, useLingui } from "@lingui/react/macro";
 import { useEffect, useState } from "react";
 import { desktopBridge } from "../lib/desktop";
 import { rpc } from "../lib/rpc";

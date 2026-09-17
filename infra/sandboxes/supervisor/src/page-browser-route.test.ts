@@ -63,12 +63,7 @@ it("resolves the owned display and refuses an older fence before running the hel
     ok: true,
   });
   expect(mock.exec.mock.calls.at(-1)?.[0]).toMatchObject({
-    Env: [
-      "DISPLAY=:2",
-      "BOT_CDP_PORT=9223",
-      "HOME=/home/bot",
-      "BOT_BROWSER_WATCH_STDIN=1",
-    ],
+    Env: ["DISPLAY=:2", "BOT_CDP_PORT=9223", "HOME=/home/bot", "BOT_BROWSER_WATCH_STDIN=1"],
   });
   mock.exec.mockClear();
   expect(await (await snapshot("computer-lease", "first", "run:1")).json()).toMatchObject({

@@ -14,21 +14,19 @@ describe("desktop child windows", () => {
     ).toBe(false);
   });
 
-  it.each([
-    "bot-model-oauth",
-    "bot-mcp-oauth",
-    "bot-app-connect",
-    "bot-plugin-connect",
-  ])("keeps the intentional %s flow in an Electron popup", (frameName) => {
-    expect(
-      shouldOpenInAppPopup(appOrigin, "https://provider.example.com/authorize", frameName),
-    ).toBe(true);
-  });
+  it.each(["bot-model-oauth", "bot-mcp-oauth", "bot-app-connect", "bot-plugin-connect"])(
+    "keeps the intentional %s flow in an Electron popup",
+    (frameName) => {
+      expect(
+        shouldOpenInAppPopup(appOrigin, "https://provider.example.com/authorize", frameName),
+      ).toBe(true);
+    },
+  );
 
   it("rejects malformed URLs and non-HTTPS third-party targets", () => {
     expect(shouldOpenInAppPopup(appOrigin, "not a url", "bot-model-oauth")).toBe(false);
-    expect(
-      shouldOpenInAppPopup(appOrigin, "http://provider.example.com", "bot-model-oauth"),
-    ).toBe(false);
+    expect(shouldOpenInAppPopup(appOrigin, "http://provider.example.com", "bot-model-oauth")).toBe(
+      false,
+    );
   });
 });

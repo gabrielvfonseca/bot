@@ -1,11 +1,7 @@
 import { constants } from "node:fs";
 import { mkdir, open, unlink } from "node:fs/promises";
 import path from "node:path";
-import type {
-  AdapterContext,
-  NotificationMessage,
-  NotificationProvider,
-} from "@bot/adapter-kit";
+import type { AdapterContext, NotificationMessage, NotificationProvider } from "@bot/adapter-kit";
 import { getLogger } from "@bot/logging";
 import { combineSignals } from "./connector-safety.js";
 import { readBodyCapped, withAbort } from "./web-ssrf.js";

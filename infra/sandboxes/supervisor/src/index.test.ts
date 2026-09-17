@@ -262,11 +262,7 @@ describe("sandbox supervisor input containment", () => {
       hasComputerIdentity({ "bot.botId": "bot", "bot.workspaceId": "space" }, "bot", "space"),
     ).toBe(true);
     expect(
-      hasComputerIdentity(
-        { "bot.botId": "bot", "bot.workspaceId": "other-space" },
-        "bot",
-        "space",
-      ),
+      hasComputerIdentity({ "bot.botId": "bot", "bot.workspaceId": "other-space" }, "bot", "space"),
     ).toBe(false);
     expect(
       hasComputerIdentity(

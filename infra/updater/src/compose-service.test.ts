@@ -114,9 +114,7 @@ describe("the updater compose service", () => {
     expect(updater.environment?.BOT_COMPOSE_FILE).toBe(
       interpolated("BOT_COMPOSE_FILE", "infra/compose/docker-compose.prod.yml"),
     );
-    expect(updater.environment?.BOT_UPDATE_SERVICES).toBe(
-      interpolated("BOT_UPDATE_SERVICES"),
-    );
+    expect(updater.environment?.BOT_UPDATE_SERVICES).toBe(interpolated("BOT_UPDATE_SERVICES"));
     expect(updater.environment?.COMPOSE_PATH_SEPARATOR).toBe(
       interpolated("COMPOSE_PATH_SEPARATOR"),
     );

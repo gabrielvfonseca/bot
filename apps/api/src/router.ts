@@ -1,5 +1,4 @@
 import { createHash, randomBytes, randomUUID } from "node:crypto";
-import { implement, ORPCError } from "@orpc/server";
 import type {
   AdapterContext,
   AgentHomeStore,
@@ -135,6 +134,7 @@ import {
   touchGroupUpdatedAt,
 } from "@bot/database";
 import { getLogger } from "@bot/logging";
+import { implement, ORPCError } from "@orpc/server";
 import { deleteAgentSecret, listAgentSecrets, putAgentSecret } from "./agent-secrets.js";
 import { createAgentSkillsService } from "./agent-skills.js";
 import { aiConsentStatus, allowAiConsent } from "./ai-consent.js";

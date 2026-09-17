@@ -3,7 +3,6 @@ import { mkdir, rm, writeFile } from "node:fs/promises";
 import { createServer, type Server } from "node:http";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
-import { serve } from "@hono/node-server";
 import {
   ComposioEmulator,
   EmailEmulator,
@@ -11,6 +10,7 @@ import {
   ThirdPartyConnectorEmulator,
 } from "@bot/adapters";
 import { createThreadMessage, type PrismaClient } from "@bot/database";
+import { serve } from "@hono/node-server";
 import { sessionCookieHeader } from "../index.js";
 import { runProcess } from "./process.js";
 

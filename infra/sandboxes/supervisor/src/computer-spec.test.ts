@@ -632,11 +632,7 @@ describe("graphical computer spec", () => {
 });
 
 describe("computer resource limits", () => {
-  const KEYS = [
-    "BOT_COMPUTER_MEMORY",
-    "BOT_COMPUTER_CPUS",
-    "BOT_COMPUTER_PIDS_LIMIT",
-  ] as const;
+  const KEYS = ["BOT_COMPUTER_MEMORY", "BOT_COMPUTER_CPUS", "BOT_COMPUTER_PIDS_LIMIT"] as const;
   const saved = new Map<string, string | undefined>();
 
   beforeEach(() => {

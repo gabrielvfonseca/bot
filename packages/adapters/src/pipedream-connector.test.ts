@@ -76,10 +76,7 @@ describe("PipedreamConnector", () => {
     );
 
     await expect(
-      connector.begin(
-        { provider: "gmail", redirectUrl: "https://bot.example.test/app" },
-        context,
-      ),
+      connector.begin({ provider: "gmail", redirectUrl: "https://bot.example.test/app" }, context),
     ).rejects.toThrow("secure HTTPS connect URL");
   });
 
@@ -100,10 +97,7 @@ describe("PipedreamConnector", () => {
     );
 
     await expect(
-      connector.begin(
-        { provider: "gmail", redirectUrl: "https://bot.example.test/app" },
-        context,
-      ),
+      connector.begin({ provider: "gmail", redirectUrl: "https://bot.example.test/app" }, context),
     ).rejects.toThrow("Pipedream response is too large.");
     expect(cancel).toHaveBeenCalledOnce();
   });
@@ -174,10 +168,7 @@ describe("PipedreamConnector", () => {
     );
 
     await expect(
-      connector.begin(
-        { provider: "gmail", redirectUrl: "https://bot.example.test/app" },
-        context,
-      ),
+      connector.begin({ provider: "gmail", redirectUrl: "https://bot.example.test/app" }, context),
     ).rejects.toThrow("Pipedream response is too large.");
   });
 
@@ -209,16 +200,10 @@ describe("PipedreamConnector", () => {
     );
 
     await expect(
-      connector.begin(
-        { provider: "gmail", redirectUrl: "https://bot.example.test/app" },
-        context,
-      ),
+      connector.begin({ provider: "gmail", redirectUrl: "https://bot.example.test/app" }, context),
     ).rejects.toThrow("Pipedream response is too large.");
     await expect(
-      connector.begin(
-        { provider: "gmail", redirectUrl: "https://bot.example.test/app" },
-        context,
-      ),
+      connector.begin({ provider: "gmail", redirectUrl: "https://bot.example.test/app" }, context),
     ).resolves.toEqual({
       authorizationUrl: "https://pipedream.example.test/connect?app=gmail",
       state: "gmail",
@@ -346,10 +331,7 @@ describe("PipedreamConnector", () => {
       expect.objectContaining({ connectorId: "pipedream", slug: "linear", connected: false }),
     );
     await expect(
-      connector.begin(
-        { provider: "linear", redirectUrl: "https://bot.example.test/app" },
-        context,
-      ),
+      connector.begin({ provider: "linear", redirectUrl: "https://bot.example.test/app" }, context),
     ).resolves.toEqual({
       authorizationUrl: "https://pipedream.example.test/connect?app=linear",
       state: "linear",

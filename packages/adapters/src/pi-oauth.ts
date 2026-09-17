@@ -1,11 +1,4 @@
 import { randomUUID } from "node:crypto";
-import type {
-  AuthInteraction,
-  Credential,
-  OAuthAuth,
-  OAuthCredential,
-} from "@earendil-works/pi-ai";
-import { builtinModels } from "@earendil-works/pi-ai/providers/all";
 import {
   MAX_MODEL_CONTEXT_WINDOW,
   MAX_MODEL_MAX_TOKENS,
@@ -14,6 +7,13 @@ import {
   type ThinkingLevel,
   ThinkingLevelSchema,
 } from "@bot/contracts";
+import type {
+  AuthInteraction,
+  Credential,
+  OAuthAuth,
+  OAuthCredential,
+} from "@earendil-works/pi-ai";
+import { builtinModels } from "@earendil-works/pi-ai/providers/all";
 import { createManualAnthropicOAuthLogin } from "./pi-anthropic-oauth.js";
 
 export const CHATGPT_OAUTH_PROVIDER = "openai-codex";
@@ -29,8 +29,7 @@ export const SUBSCRIPTION_SIGN_IN_PROVIDERS: Record<
     mode: "device-code",
     loginLabel: "Sign in with ChatGPT Plus/Pro",
     hint: "ChatGPT Plus/Pro",
-    billing:
-      "Sign in with ChatGPT Plus or Pro. Uses your OpenAI subscription. Bot does not pay.",
+    billing: "Sign in with ChatGPT Plus or Pro. Uses your OpenAI subscription. Bot does not pay.",
   },
   [COPILOT_OAUTH_PROVIDER]: {
     mode: "device-code",

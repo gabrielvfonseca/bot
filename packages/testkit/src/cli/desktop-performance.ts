@@ -5,6 +5,9 @@ import os from "node:os";
 import path from "node:path";
 import { performance } from "node:perf_hooks";
 import { brotliCompressSync, gzipSync } from "node:zlib";
+import { abortableDelay } from "@bot/core";
+import { loadRootEnv } from "@bot/core/node/load-root-env";
+import { createThreadMessage, type PrismaClient } from "@bot/database";
 import { serve } from "@hono/node-server";
 import {
   type CDPSession,
@@ -13,9 +16,6 @@ import {
   expect,
   type Page,
 } from "@playwright/test";
-import { abortableDelay } from "@bot/core";
-import { loadRootEnv } from "@bot/core/node/load-root-env";
-import { createThreadMessage, type PrismaClient } from "@bot/database";
 import { PostgreSqlContainer } from "@testcontainers/postgresql";
 import type { createApp } from "../../../../apps/api/src/app.ts";
 import {
@@ -516,8 +516,7 @@ async function measureInteractions(app: ElectronApplication, page: Page) {
     const target = document.querySelector<HTMLInputElement>('input[placeholder^="Message "]');
     if (!target) throw new Error("Composer is missing");
     const samples: number[] = [];
-    (window as typeof window & { __botKeyPaintSamples?: number[] }).__botKeyPaintSamples =
-      samples;
+    (window as typeof window & { __botKeyPaintSamples?: number[] }).__botKeyPaintSamples = samples;
     target.addEventListener("keydown", () => {
       const started = performance.now();
       requestAnimationFrame(() => samples.push(performance.now() - started));
@@ -532,8 +531,7 @@ async function measureInteractions(app: ElectronApplication, page: Page) {
   );
   const keyPaintMs = await page.evaluate(
     () =>
-      (window as typeof window & { __botKeyPaintSamples?: number[] }).__botKeyPaintSamples ??
-      [],
+      (window as typeof window & { __botKeyPaintSamples?: number[] }).__botKeyPaintSamples ?? [],
   );
   const typingAfter = await cdpMetrics(session);
 

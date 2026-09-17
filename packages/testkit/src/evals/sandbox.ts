@@ -1,9 +1,4 @@
-import type {
-  AdapterContext,
-  CommandRequest,
-  ComputerRef,
-  ProcessEvent,
-} from "@bot/adapter-kit";
+import type { AdapterContext, CommandRequest, ComputerRef, ProcessEvent } from "@bot/adapter-kit";
 import { FakeSandboxProvider } from "@bot/adapters";
 
 /** A model must not receive successful shell results for commands the fixture never ran. */

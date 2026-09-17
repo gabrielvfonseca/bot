@@ -1,4 +1,3 @@
-import { Trans, useLingui } from "@lingui/react/macro";
 import type { AgentSkill, AgentSkillCatalogEntry, MemoryDocument } from "@bot/contracts";
 import {
   Button,
@@ -9,6 +8,7 @@ import {
   TabsTrigger,
   Textarea,
 } from "@bot/design-system";
+import { Trans, useLingui } from "@lingui/react/macro";
 import { useEffect, useRef, useState } from "react";
 import { downloadArtifactBytes } from "../lib/artifact-open";
 import { rpc } from "../lib/rpc";

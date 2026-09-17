@@ -215,12 +215,7 @@ describe("executor approval replay", () => {
       },
     ];
     const queue = createApprovedEffectReplayQueue(effects);
-    const replay = approvedCatalogReplay(
-      queue,
-      "installed_execute_tool",
-      "__botCatalogTool",
-      true,
-    );
+    const replay = approvedCatalogReplay(queue, "installed_execute_tool", "__botCatalogTool", true);
     const modelRuntimeArgs = {
       id: "install-B:delete_item",
       arguments: { target: "model-reconstructed" },

@@ -1,5 +1,4 @@
 import { timingSafeEqual } from "node:crypto";
-import type { RPCHandler } from "@orpc/server/fetch";
 import type { Actor } from "@bot/contracts";
 import {
   isLocalSettingsProcedure,
@@ -7,6 +6,7 @@ import {
   LOCAL_SETTINGS_TOKEN_HEADER,
 } from "@bot/contracts";
 import { type PrismaClient, requireMembership } from "@bot/database";
+import type { RPCHandler } from "@orpc/server/fetch";
 import type { Hono } from "hono";
 
 export function validLocalSettingsToken(

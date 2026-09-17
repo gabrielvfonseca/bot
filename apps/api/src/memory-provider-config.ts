@@ -1,4 +1,3 @@
-import { ORPCError } from "@orpc/server";
 import type { SecretStore } from "@bot/adapter-kit";
 import {
   classifyMemoryProviderSettings,
@@ -9,6 +8,7 @@ import {
 } from "@bot/adapters";
 import type { Actor } from "@bot/contracts";
 import { findSpaceMemoryConfig, Prisma, type PrismaClient } from "@bot/database";
+import { ORPCError } from "@orpc/server";
 import { withSerializableRetry } from "./serializable-retry.js";
 
 export interface MemoryProviderConfigDeps {

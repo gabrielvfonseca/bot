@@ -1,11 +1,6 @@
 import { createHash } from "node:crypto";
 import path from "node:path";
-import type {
-  AdapterContext,
-  ArtifactStore,
-  ComputerRef,
-  SandboxProvider,
-} from "@bot/adapter-kit";
+import type { AdapterContext, ArtifactStore, ComputerRef, SandboxProvider } from "@bot/adapter-kit";
 import type { ComputerMode, MessageBlock } from "@bot/contracts";
 import { ATTACHMENT_MAX_BYTES } from "@bot/contracts";
 import {

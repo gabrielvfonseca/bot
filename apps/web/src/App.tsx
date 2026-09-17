@@ -1,6 +1,6 @@
-import { Trans, useLingui } from "@lingui/react/macro";
 import { LOCAL_SETTINGS_PAGE } from "@bot/contracts";
 import { Button, Skeleton } from "@bot/design-system";
+import { Trans, useLingui } from "@lingui/react/macro";
 import { lazy, Suspense, useEffect, useLayoutEffect, useRef, useState } from "react";
 import { Navigate, Route, Routes, useSearchParams } from "react-router-dom";
 import { LoadingState } from "./components/ai/primitives";
@@ -178,10 +178,7 @@ function SessionUnavailable({ refetch }: { refetch: () => Promise<void> }) {
 
 function ShellSkeleton() {
   return (
-    <div
-      className="flex h-full overflow-hidden bg-background"
-      data-bot-app-state="session-pending"
-    >
+    <div className="flex h-full overflow-hidden bg-background" data-bot-app-state="session-pending">
       <aside className="hidden w-[316px] shrink-0 border-e border-sidebar-border bg-sidebar px-3.5 pt-16 md:block">
         <Skeleton className="h-10 rounded-xl" />
         <div className="mt-5 space-y-2 px-1">

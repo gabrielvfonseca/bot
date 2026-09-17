@@ -1,4 +1,3 @@
-import { Plural, Trans, useLingui } from "@lingui/react/macro";
 import type {
   CapabilityInstall,
   Connection,
@@ -29,6 +28,7 @@ import {
   NativeSelect,
   NativeSelectOption,
 } from "@bot/design-system";
+import { Plural, Trans, useLingui } from "@lingui/react/macro";
 import { ChevronDown, ChevronLeft, ChevronUp, X } from "lucide-react";
 import { useEffect, useMemo, useRef, useState } from "react";
 import { IntegrationSetup } from "../components/integrations/IntegrationSetup";

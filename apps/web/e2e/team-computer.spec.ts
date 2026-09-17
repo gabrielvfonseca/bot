@@ -149,12 +149,7 @@ test("a failed control release keeps the computer open for retry", async ({ page
 test("an active Team bot must be stopped before user takeover", async ({ page }, testInfo) => {
   const stamp = Date.now();
 
-  await signup(
-    page,
-    `active-team-control-${stamp}@bot.test`,
-    "password12",
-    "Active Team Control",
-  );
+  await signup(page, `active-team-control-${stamp}@bot.test`, "password12", "Active Team Control");
   await completeOnboarding(page);
   const chiefId = activeBotId(page);
 

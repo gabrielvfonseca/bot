@@ -1,6 +1,6 @@
-import { Trans, useLingui } from "@lingui/react/macro";
 import { readBoundedJsonResponse, signupRequiresEmailVerification } from "@bot/core";
 import { Button, Input, Label } from "@bot/design-system";
+import { Trans, useLingui } from "@lingui/react/macro";
 import { Eye, EyeOff } from "lucide-react";
 import { useEffect, useState } from "react";
 import { Link, useNavigate, useSearchParams } from "react-router-dom";

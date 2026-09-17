@@ -6,9 +6,9 @@ describe("desktop sandbox path rules", () => {
   it("compares Windows roots case-insensitively without accepting siblings or other drives", () => {
     const roots = ["C:\\Users\\Owner\\Bot\\bot"];
 
-    expect(
-      isAllowedDesktopPath("c:\\users\\owner\\bot\\BOT\\notes.txt", roots, path.win32),
-    ).toBe(true);
+    expect(isAllowedDesktopPath("c:\\users\\owner\\bot\\BOT\\notes.txt", roots, path.win32)).toBe(
+      true,
+    );
     expect(
       isAllowedDesktopPath("C:\\Users\\Owner\\Bot\\bot-other\\notes.txt", roots, path.win32),
     ).toBe(false);
@@ -18,9 +18,9 @@ describe("desktop sandbox path rules", () => {
   it("handles explicitly allowed UNC roots without accepting sibling shares", () => {
     const roots = ["\\\\server\\share\\bot\\bot"];
 
-    expect(
-      isAllowedDesktopPath("\\\\SERVER\\share\\bot\\BOT\\notes.txt", roots, path.win32),
-    ).toBe(true);
+    expect(isAllowedDesktopPath("\\\\SERVER\\share\\bot\\BOT\\notes.txt", roots, path.win32)).toBe(
+      true,
+    );
     expect(
       isAllowedDesktopPath("\\\\server\\share-other\\bot\\bot\\notes.txt", roots, path.win32),
     ).toBe(false);

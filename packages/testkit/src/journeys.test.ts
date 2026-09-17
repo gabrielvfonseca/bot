@@ -803,11 +803,7 @@ describeJourneys("required product journeys", () => {
   });
 
   it("4d: a stale Team release cannot clear a newer bot takeover", async () => {
-    const cookie = await signup(
-      app,
-      `takeover-release-fence-j-${stamp}@bot.test`,
-      "Release Fence",
-    );
+    const cookie = await signup(app, `takeover-release-fence-j-${stamp}@bot.test`, "Release Fence");
     const writer = await rpc<Bot>(app, cookie, "bots/create", {
       name: "Writer",
       title: "",

@@ -3,9 +3,9 @@ import { loadRootEnv } from "@bot/core/node/load-root-env";
 
 loadRootEnv();
 
-import { serve } from "@hono/node-server";
 import { SERVICE_NAMES } from "@bot/logging";
 import { createRootLogger } from "@bot/logging/axiom";
+import { serve } from "@hono/node-server";
 import { createApp } from "./app.js";
 import { loadEnv } from "./env.js";
 

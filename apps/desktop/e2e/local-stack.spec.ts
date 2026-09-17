@@ -140,8 +140,7 @@ async function launch(mode: FakeDockerMode | "missing") {
     cwd: path.resolve(import.meta.dirname, ".."),
     env: {
       ...env,
-      BOT_DOCKER_BINARY:
-        mode === "missing" ? "/nonexistent/docker" : await writeFakeDocker(mode),
+      BOT_DOCKER_BINARY: mode === "missing" ? "/nonexistent/docker" : await writeFakeDocker(mode),
       BOT_LOCAL_WEB_URL: serverUrl,
       BOT_IMAGE_TAG: IMAGE_TAG,
     },
@@ -210,8 +209,7 @@ test("This computer installs and starts the stack, then opens the app", async ()
     await readFile(path.join(COMPOSE_DIR, "docker-compose.images.yml"), "utf8"),
   );
 
-  const compose =
-    "compose --env-file .env -f docker-compose.images.yml --project-name bot-desktop";
+  const compose = "compose --env-file .env -f docker-compose.images.yml --project-name bot-desktop";
   expect(await readLog()).toEqual([
     `${stackDir} | ${IMAGE_TAG} | compose version --short`,
     `${stackDir} | ${IMAGE_TAG} | info --format {{.ServerVersion}}`,

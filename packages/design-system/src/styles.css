@@ -49,8 +49,6 @@
   --color-scrollbar-hover: var(--scrollbar-hover);
 }
 
-
-
 @layer base {
   * {
     @apply border-border outline-ring/50;

@@ -6,11 +6,7 @@ import type {
   MessageBlock,
   Routine,
 } from "@bot/contracts";
-import {
-  canReactToThreadMessage,
-  MESSAGE_REACTIONS,
-  type MessageReaction,
-} from "@bot/contracts";
+import { canReactToThreadMessage, MESSAGE_REACTIONS, type MessageReaction } from "@bot/contracts";
 import {
   abortableDelay,
   attachmentsForThread,

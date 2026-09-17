@@ -4,7 +4,6 @@ import { mkdir } from "node:fs/promises";
 import http from "node:http";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
-import { serve } from "@hono/node-server";
 import {
   boundedSandboxCommandTimeoutMs,
   readBoundedJsonResponse,
@@ -14,6 +13,7 @@ import { loadRootEnv } from "@bot/core/node/load-root-env";
 import { SERVICE_NAMES } from "@bot/logging";
 import { createRootLogger } from "@bot/logging/axiom";
 import { requestLogging } from "@bot/logging/hono";
+import { serve } from "@hono/node-server";
 import Docker from "dockerode";
 import { Hono, type MiddlewareHandler } from "hono";
 import { bodyLimit } from "hono/body-limit";
@@ -919,8 +919,7 @@ async function isManagedSpaceContainer(
   try {
     const info = await docker.getContainer(item.Id).inspect();
     const infoLabels = info.Config?.Labels ?? {};
-    const managed =
-      infoLabels["bot.managed"] === "true" || info.Config?.Image === COMPUTER_IMAGE;
+    const managed = infoLabels["bot.managed"] === "true" || info.Config?.Image === COMPUTER_IMAGE;
     const infoSpaceId = infoLabels["bot.spaceId"] ?? infoLabels["bot.workspaceId"];
     return managed && infoSpaceId === spaceId;
   } catch {
@@ -1295,9 +1294,7 @@ async function runContainerCommand(
 ): Promise<{ stdout: string; stderr: string; code: number }> {
   options.signal?.throwIfAborted();
   const timeoutMs = options.timeoutMs;
-  const completionMarker = timeoutMs
-    ? `/tmp/bot-command-${randomUUID()}.completed-124`
-    : undefined;
+  const completionMarker = timeoutMs ? `/tmp/bot-command-${randomUUID()}.completed-124` : undefined;
   const command =
     completionMarker && timeoutMs !== undefined
       ? sandboxTimeoutCommand(argv, timeoutMs, completionMarker)

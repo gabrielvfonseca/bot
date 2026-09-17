@@ -1,4 +1,3 @@
-import { Trans, useLingui } from "@lingui/react/macro";
 import type {
   Bot,
   ExternalConversation,
@@ -15,6 +14,7 @@ import {
   NativeSelect,
   NativeSelectOption,
 } from "@bot/design-system";
+import { Trans, useLingui } from "@lingui/react/macro";
 import { XIcon } from "lucide-react";
 import { useEffect, useState } from "react";
 

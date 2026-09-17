@@ -1,12 +1,4 @@
 import path from "node:path";
-import {
-  Daytona,
-  type DaytonaConfig,
-  DaytonaNotFoundError,
-  DaytonaProcessExecutionTimeoutError,
-  type Sandbox,
-  SandboxState,
-} from "@daytona/sdk";
 import type {
   AdapterContext,
   CommandRequest,
@@ -23,6 +15,14 @@ import type {
   ScreenSession,
 } from "@bot/adapter-kit";
 import { boundedSandboxCommandTimeoutMs } from "@bot/core";
+import {
+  Daytona,
+  type DaytonaConfig,
+  DaytonaNotFoundError,
+  DaytonaProcessExecutionTimeoutError,
+  type Sandbox,
+  SandboxState,
+} from "@daytona/sdk";
 import { screenSessionKey } from "./computer-screens.js";
 import { normalizeWorkspacePath, shellQuote, workspacePath } from "./computer-support.js";
 import {

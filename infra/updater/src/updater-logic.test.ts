@@ -132,9 +132,7 @@ describe("resolveUpdaterConfig", () => {
   });
 
   it("refuses an image name it would not be willing to hand to compose", () => {
-    expect(() => resolveUpdaterConfig({ ...base, BOT_IMAGE: "Bad Name" })).toThrow(
-      /BOT_IMAGE/,
-    );
+    expect(() => resolveUpdaterConfig({ ...base, BOT_IMAGE: "Bad Name" })).toThrow(/BOT_IMAGE/);
     expect(resolveUpdaterConfig({ ...base, BOT_IMAGE: "ghcr.io/me/app" }).image).toBe(
       "ghcr.io/me/app",
     );

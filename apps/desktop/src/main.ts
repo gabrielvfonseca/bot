@@ -308,11 +308,7 @@ function createWindow(url: string, partition: string | null) {
     popup.webContents.on("will-navigate", (details) => capture(details));
   });
   win.on("close", (event) => {
-    if (
-      process.platform === "darwin" &&
-      !quitting &&
-      process.env.BOT_DISABLE_WARM_WINDOW !== "1"
-    ) {
+    if (process.platform === "darwin" && !quitting && process.env.BOT_DISABLE_WARM_WINDOW !== "1") {
       event.preventDefault();
       win.hide();
       clearTimeout(warmWindowTimer);

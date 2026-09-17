@@ -1,4 +1,3 @@
-import { Plural, Trans, useLingui } from "@lingui/react/macro";
 import type { Me, ThinkingLevel } from "@bot/contracts";
 import {
   DEFAULT_MODEL_CONTEXT_WINDOW,
@@ -26,6 +25,7 @@ import {
   NativeSelect,
   NativeSelectOption,
 } from "@bot/design-system";
+import { Plural, Trans, useLingui } from "@lingui/react/macro";
 import { ChevronDown, X } from "lucide-react";
 import {
   type KeyboardEvent as ReactKeyboardEvent,
