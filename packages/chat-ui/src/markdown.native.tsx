@@ -1,4 +1,4 @@
-import { type ColorTokens, darkTokens, type ResolvedAppearance } from "@bot/ui-tokens";
+import { type ColorTokens, darkTokens, type ResolvedAppearance } from "@bot/design-system/tokens";
 import Markdown, {
   MarkdownStream,
   type RenderRules,

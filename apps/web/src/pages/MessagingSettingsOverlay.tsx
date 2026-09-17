@@ -14,7 +14,7 @@ import {
   DialogTitle,
   NativeSelect,
   NativeSelectOption,
-} from "@bot/ui-web";
+} from "@bot/design-system";
 import { XIcon } from "lucide-react";
 import { useEffect, useState } from "react";
 

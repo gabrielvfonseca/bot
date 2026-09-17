@@ -28,7 +28,7 @@ import {
   Input,
   NativeSelect,
   NativeSelectOption,
-} from "@bot/ui-web";
+} from "@bot/design-system";
 import { ChevronDown, ChevronLeft, ChevronUp, X } from "lucide-react";
 import { useEffect, useMemo, useRef, useState } from "react";
 import { IntegrationSetup } from "../components/integrations/IntegrationSetup";

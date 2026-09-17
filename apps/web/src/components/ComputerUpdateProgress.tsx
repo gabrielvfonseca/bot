@@ -15,7 +15,7 @@ import {
   Dialog,
   DialogContent,
   DialogTitle,
-} from "@bot/ui-web";
+} from "@bot/design-system";
 import { CheckCircle2, Circle, CircleAlert, LoaderCircle } from "lucide-react";
 import { useEffect, useRef, useState, useSyncExternalStore } from "react";
 import { computerUpdates } from "../lib/computer-updates";

@@ -23,7 +23,7 @@ import {
   Switch,
   Textarea,
   Toggle,
-} from "@bot/ui-web";
+} from "@bot/design-system";
 import { X } from "lucide-react";
 import { lazy, Suspense, useEffect, useId, useRef, useState } from "react";
 import { rpc } from "../../lib/rpc";

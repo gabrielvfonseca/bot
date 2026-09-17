@@ -1,7 +1,7 @@
 import { Trans, useLingui } from "@lingui/react/macro";
 import type { MessageBlock } from "@bot/contracts";
 import { abortableDelay } from "@bot/core";
-import { Button, Dialog, DialogClose, DialogContent, DialogTitle } from "@bot/ui-web";
+import { Button, Dialog, DialogClose, DialogContent, DialogTitle } from "@bot/design-system";
 import { X } from "lucide-react";
 import { useEffect, useRef, useState } from "react";
 import { BuiCard, SuccessPop } from "../../components/ai/primitives";

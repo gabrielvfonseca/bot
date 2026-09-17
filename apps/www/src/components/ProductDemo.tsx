@@ -1,4 +1,4 @@
-import { Button } from "@bot/ui-web";
+import { Button } from "@bot/design-system";
 import { useEffect, useMemo, useRef, useState } from "react";
 import {
   type DemoBot,

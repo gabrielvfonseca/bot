@@ -21,7 +21,7 @@
     "@bot/chat-ui": "workspace:*",
     "@bot/contracts": "workspace:*",
     "@bot/core": "workspace:*",
-    "@bot/ui-tokens": "workspace:*",
+    "@bot/design-system": "workspace:*",
     "@react-native-vector-icons/ionicons": "13.1.4",
     "@react-native-vector-icons/material-design-icons": "13.1.4",
     "expo": "57.0.23",

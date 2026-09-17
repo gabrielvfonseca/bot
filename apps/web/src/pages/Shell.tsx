@@ -77,7 +77,7 @@ import {
   PopoverContent,
   PopoverTrigger,
   resolvePersonaColorDef,
-} from "@bot/ui-web";
+} from "@bot/design-system";
 import {
   ArrowDown,
   ArrowUp,

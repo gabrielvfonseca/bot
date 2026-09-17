@@ -23,7 +23,7 @@ import {
   SelectItem,
   SelectTrigger,
   SelectValue,
-} from "@bot/ui-web";
+} from "@bot/design-system";
 import { useEffect, useId, useMemo, useRef, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { IntegrationSetup } from "../components/integrations/IntegrationSetup";

@@ -5,7 +5,7 @@ import {
   type SpaceBot,
   type SpaceGroup,
 } from "@bot/contracts";
-import { botColors } from "@bot/ui-tokens";
+import { botColors } from "@bot/design-system/tokens";
 import { Redirect, useFocusEffect, useRouter } from "expo-router";
 import { type ReactNode, useCallback, useEffect, useMemo, useRef, useState } from "react";
 import {

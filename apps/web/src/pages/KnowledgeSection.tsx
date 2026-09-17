@@ -8,7 +8,7 @@ import {
   TabsList,
   TabsTrigger,
   Textarea,
-} from "@bot/ui-web";
+} from "@bot/design-system";
 import { useEffect, useRef, useState } from "react";
 import { downloadArtifactBytes } from "../lib/artifact-open";
 import { rpc } from "../lib/rpc";

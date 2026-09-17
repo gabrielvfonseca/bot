@@ -1,6 +1,6 @@
 import { useLingui } from "@lingui/react/macro";
 import type { Bot, IntegrationSetupState } from "@bot/contracts";
-import { NativeSelect, NativeSelectOption } from "@bot/ui-web";
+import { NativeSelect, NativeSelectOption } from "@bot/design-system";
 import { useEffect, useState } from "react";
 import { useNavigate, useSearchParams } from "react-router-dom";
 import { IntegrationSetup } from "../components/integrations/IntegrationSetup";

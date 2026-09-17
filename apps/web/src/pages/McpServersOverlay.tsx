@@ -22,7 +22,7 @@ import {
   Tabs,
   TabsList,
   TabsTrigger,
-} from "@bot/ui-web";
+} from "@bot/design-system";
 import { Check, X } from "lucide-react";
 import { useEffect, useState } from "react";
 import { connectMcpOauth, MCP_OAUTH_CHANNEL } from "../lib/mcp-connect";

@@ -14,7 +14,7 @@ import {
   DropdownMenuContent,
   DropdownMenuItem,
   DropdownMenuTrigger,
-} from "@bot/ui-web";
+} from "@bot/design-system";
 import { MoreHorizontal } from "lucide-react";
 import { useState } from "react";
 import { computerUpdates } from "../lib/computer-updates";

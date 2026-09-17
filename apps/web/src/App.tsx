@@ -1,6 +1,6 @@
 import { Trans, useLingui } from "@lingui/react/macro";
 import { LOCAL_SETTINGS_PAGE } from "@bot/contracts";
-import { Button, Skeleton } from "@bot/ui-web";
+import { Button, Skeleton } from "@bot/design-system";
 import { lazy, Suspense, useEffect, useLayoutEffect, useRef, useState } from "react";
 import { Navigate, Route, Routes, useSearchParams } from "react-router-dom";
 import { LoadingState } from "./components/ai/primitives";

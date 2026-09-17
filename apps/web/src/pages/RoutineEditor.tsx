@@ -21,7 +21,7 @@ import {
   DropdownMenuTrigger,
   Input,
   Textarea,
-} from "@bot/ui-web";
+} from "@bot/design-system";
 import { ChevronLeft, Clock, GitBranch, Globe, MessageSquare, Pause, Plus, X } from "lucide-react";
 import { useId } from "react";
 import { RoutineSchedule } from "./RoutineSchedule";

@@ -8,7 +8,7 @@ import {
   CommandItem,
   CommandList,
   CommandSeparator,
-} from "@bot/ui-web";
+} from "@bot/design-system";
 import { Info, Lock, Plus, Users } from "lucide-react";
 import { useMemo, useState } from "react";
 

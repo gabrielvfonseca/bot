@@ -1,7 +1,7 @@
 import { Trans, useLingui } from "@lingui/react/macro";
 import { ChatMarkdown } from "@bot/chat-ui/web";
 import type { ThreadMessage } from "@bot/contracts";
-import { BotAvatar, Button, Dialog, DialogClose, DialogContent, DialogTitle } from "@bot/ui-web";
+import { BotAvatar, Button, Dialog, DialogClose, DialogContent, DialogTitle } from "@bot/design-system";
 import { useEffect, useMemo, useState } from "react";
 import { loadPeerHistory } from "../lib/peer-history";
 import { peerConversations } from "../lib/peer-messages";

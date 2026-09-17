@@ -7,7 +7,7 @@ import {
   type CronUnit,
   cronFromPreset,
 } from "@bot/core";
-import { Input, NativeSelect, NativeSelectOption } from "@bot/ui-web";
+import { Input, NativeSelect, NativeSelectOption } from "@bot/design-system";
 import { Clock } from "lucide-react";
 
 const UNITS: CronUnit[] = ["minutes", "hours", "days"];

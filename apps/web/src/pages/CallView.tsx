@@ -1,7 +1,7 @@
 import { Trans, useLingui } from "@lingui/react/macro";
 import type { ThreadMessage, ThreadSnapshot } from "@bot/contracts";
 import { isSecretAskBlock, narrateTool, speechFromBlocks, spokenDecision } from "@bot/core";
-import { Button, Dialog, DialogContent, DialogHeader, DialogTitle } from "@bot/ui-web";
+import { Button, Dialog, DialogContent, DialogHeader, DialogTitle } from "@bot/design-system";
 import { useEffect, useRef, useState } from "react";
 import { dictation } from "../lib/dictation";
 import { speaker } from "../lib/tts";

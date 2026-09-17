@@ -1,5 +1,5 @@
 import { Trans, useLingui } from "@lingui/react/macro";
-import { Button } from "@bot/ui-web";
+import { Button } from "@bot/design-system";
 import { useEffect, useRef, useState } from "react";
 import { useNavigate, useSearchParams } from "react-router-dom";
 import { MCP_OAUTH_CHANNEL } from "../lib/mcp-connect";

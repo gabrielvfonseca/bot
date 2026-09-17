@@ -2,7 +2,7 @@ import { i18n } from "@lingui/core";
 import { t } from "@lingui/core/macro";
 import { Trans, useLingui } from "@lingui/react/macro";
 import { ChatMarkdown } from "@bot/chat-ui/web";
-import { Button, Dialog, DialogClose, DialogContent, DialogTitle } from "@bot/ui-web";
+import { Button, Dialog, DialogClose, DialogContent, DialogTitle } from "@bot/design-system";
 import { Download, FileText, X } from "lucide-react";
 import { type RefObject, useEffect, useRef, useState } from "react";
 import {

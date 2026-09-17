@@ -7,7 +7,7 @@ import { fileURLToPath } from "node:url";
 const STATIC_FILES = ["preload.cjs", "setup-preload.cjs", "setup.html", "setup.css", "setup.js"];
 const TOKENS_FILE = path.resolve(
   path.dirname(fileURLToPath(import.meta.url)),
-  "../../../packages/ui-tokens/src/tokens.css",
+  "../../../packages/design-system/src/tokens.css",
 );
 
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");

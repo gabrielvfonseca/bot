@@ -1,6 +1,6 @@
 import { Trans, useLingui } from "@lingui/react/macro";
 import type { ServerUpdateCheck, ServerUpdateStatus } from "@bot/contracts";
-import { Button } from "@bot/ui-web";
+import { Button } from "@bot/design-system";
 import { useEffect, useState } from "react";
 import { rpc } from "../lib/rpc";
 import {

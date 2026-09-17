@@ -11,7 +11,7 @@ import {
   Input,
   NativeSelect,
   NativeSelectOption,
-} from "@bot/ui-web";
+} from "@bot/design-system";
 import { XIcon } from "lucide-react";
 import { useEffect, useId, useMemo, useState } from "react";
 import { rpc } from "../lib/rpc";

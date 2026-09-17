@@ -9,7 +9,7 @@ import {
   DropdownMenuSubContent,
   DropdownMenuSubTrigger,
   DropdownMenuTrigger,
-} from "@bot/ui-web";
+} from "@bot/design-system";
 import {
   Archive,
   Bell,

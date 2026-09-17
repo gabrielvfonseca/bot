@@ -7,7 +7,7 @@ import {
   DialogDescription,
   DialogHeader,
   DialogTitle,
-} from "@bot/ui-web";
+} from "@bot/design-system";
 import { useEffect, useState } from "react";
 import { desktopBridge } from "../lib/desktop";
 import { rpc } from "../lib/rpc";

@@ -5,7 +5,7 @@ import {
   resolveAppearance,
   resolveAppearancePreference,
   tokensForAppearance,
-} from "@bot/ui-tokens";
+} from "@bot/design-system/tokens";
 
 export type { AppearancePreference, ResolvedAppearance };
 

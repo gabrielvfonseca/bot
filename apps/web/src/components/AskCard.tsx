@@ -3,7 +3,7 @@ import { Trans, useLingui } from "@lingui/react/macro";
 import { ChatMarkdown } from "@bot/chat-ui/web";
 import type { ThreadMessage } from "@bot/contracts";
 import { isApprovalAskBlock, isSecretAskBlock, selectedAskActionLabel } from "@bot/core";
-import { Button, Input } from "@bot/ui-web";
+import { Button, Input } from "@bot/design-system";
 import { useState } from "react";
 
 export type AskBlock = Extract<ThreadMessage["blocks"][number], { kind: "ask" }>;

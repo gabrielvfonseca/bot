@@ -21,7 +21,7 @@
   },
   "devDependencies": {
     "@playwright/test": "1.63.0",
-    "@bot/ui-tokens": "workspace:*",
+    "@bot/design-system": "workspace:*",
     "electron": "44.3.0",
     "electron-builder": "26.15.3",
     "typescript": "7.0.2",
@@ -55,7 +55,7 @@
       "main": "dist/main.js"
     },
     "mac": {
-      "icon": "../../packages/ui-tokens/assets/Bot.icon",
+      "icon": "../../packages/design-system/assets/Bot.icon",
       "category": "public.app-category.productivity",
       "target": [
         "dmg",

@@ -1,8 +1,8 @@
 import { Trans } from "@lingui/react/macro";
 import type { MessageBlock } from "@bot/contracts";
 import { cloudAgentHttpsUrl } from "@bot/core";
-import { Badge } from "@bot/ui-web/components/ui/badge";
-import { Card, CardContent } from "@bot/ui-web/components/ui/card";
+import { Badge } from "@bot/design-system/components/ui/badge";
+import { Card, CardContent } from "@bot/design-system/components/ui/card";
 
 export function CloudAgentCard({
   block,

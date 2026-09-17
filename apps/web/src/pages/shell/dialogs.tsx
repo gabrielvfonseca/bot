@@ -17,7 +17,7 @@ import {
   DialogHeader,
   DialogTitle,
   Input,
-} from "@bot/ui-web";
+} from "@bot/design-system";
 import { Lock, Users } from "lucide-react";
 import { useId, useState } from "react";
 

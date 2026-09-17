@@ -25,7 +25,7 @@ import {
   ModelThinkingOptions,
   NativeSelect,
   NativeSelectOption,
-} from "@bot/ui-web";
+} from "@bot/design-system";
 import { ChevronDown, X } from "lucide-react";
 import {
   type KeyboardEvent as ReactKeyboardEvent,

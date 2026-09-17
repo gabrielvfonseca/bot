@@ -13,7 +13,7 @@ import {
   CommandList,
   CommandShortcut,
   Kbd,
-} from "@bot/ui-web";
+} from "@bot/design-system";
 import { useEffect, useMemo, useState } from "react";
 
 function isApplePlatform() {

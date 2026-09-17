@@ -15,7 +15,7 @@
     "@astrojs/react": "6.0.5",
     "@astrojs/sitemap": "3.7.4",
     "@bot/core": "workspace:*",
-    "@bot/ui-web": "workspace:*",
+    "@bot/design-system": "workspace:*",
     "@vercel/functions": "3.9.7",
     "astro": "7.3.2",
     "posthog-js": "1.430.1",

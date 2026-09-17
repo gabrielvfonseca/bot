@@ -1,4 +1,4 @@
-import { tokensForAppearance } from "@bot/ui-tokens";
+import { tokensForAppearance } from "@bot/design-system/tokens";
 import { useMemo, useSyncExternalStore } from "react";
 import { type ColorValue, Platform, PlatformColor } from "react-native";
 import {

@@ -2,7 +2,7 @@ import {
   persistAppearancePreference,
   resolveAppearancePreference,
   UI_APPEARANCE_STORAGE_KEY,
-} from "@bot/ui-tokens";
+} from "@bot/design-system/tokens";
 import { describe, expect, it } from "vitest";
 import { applyResolvedAppearance, readSystemAppearance } from "./ui-appearance";
 

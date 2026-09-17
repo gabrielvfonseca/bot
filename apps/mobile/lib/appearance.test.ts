@@ -46,7 +46,7 @@ describe("mobile appearance", () => {
   });
 
   it("notifies mounted navigation when the saved preference loads", async () => {
-    const { UI_APPEARANCE_STORAGE_KEY, lightTokens } = await import("@bot/ui-tokens");
+    const { UI_APPEARANCE_STORAGE_KEY, lightTokens } = await import("@bot/design-system/tokens");
     const { loadAppearancePreference, mobileTokens, subscribeAppearance } = await import(
       "./appearance"
     );

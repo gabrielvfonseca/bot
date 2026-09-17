@@ -6,7 +6,7 @@ import type {
   ExternalConversation,
   ExternalConversationPolicy,
 } from "@bot/contracts";
-import { Button } from "@bot/ui-web";
+import { Button } from "@bot/design-system";
 import { RotateCcw } from "lucide-react";
 import { useMemo, useState } from "react";
 import { SuccessPop } from "../components/ai/primitives";

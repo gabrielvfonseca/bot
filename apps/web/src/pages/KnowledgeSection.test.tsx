@@ -14,7 +14,7 @@ vi.mock("@lingui/react/macro", () => {
   const t = (parts: TemplateStringsArray) => parts.join("");
   return { useLingui: () => ({ t }), Trans: ({ children }: { children: ReactNode }) => children };
 });
-vi.mock("@bot/ui-web", () => {
+vi.mock("@bot/design-system", () => {
   const Container = ({ children }: { children?: ReactNode }) => <div>{children}</div>;
   return {
     Button: ({ variant: _variant, ...props }: ComponentProps<"button"> & { variant?: string }) => (
